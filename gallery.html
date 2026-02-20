@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Gallery | Meatlovers Nairobi - Restaurant Photos & Ambiance</title>
+    <meta name="title" content="Gallery | Meatlovers Nairobi - Restaurant Photos & Ambiance">
+    <meta name="description"
+        content="Browse photos of Meatlovers Restaurant in Nairobi. See our delicious dishes, cozy interior, outdoor seating, and happy customers. Experience the Meatlovers atmosphere.">
+    <meta name="keywords"
+        content="Meatlovers gallery, restaurant photos Nairobi, food pictures, nyama choma images, restaurant interior Nairobi">
+
+    <base href="/Meatlovers/">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://meatlovers.co.ke/gallery">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meatlovers.co.ke/gallery">
+    <meta property="og:title" content="Meatlovers Restaurant Gallery - Photos of Our Dishes and Ambiance">
+    <meta property="og:description" content="See the delicious food and warm atmosphere at Meatlovers Nairobi.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Gallery specific styles */
+        .gallery-hero {
+            height: 30vh;
+            min-height: 200px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            color: white;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+
+        .lightbox-nav.next {
+            right: 20px;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary);
+        }
+
+        .gallery-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            color: var(--dark);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .instagram-feed {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .instagram-item {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .gallery-stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 2rem;
+            }
+
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="/" class="logo">Meat<span>Lovers</span></a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="">Home</a></li>
+                        <li><a href="menu">Menu</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="gallery" class="active">Gallery</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="hero-content">
+            <h1>Our Gallery</h1>
+            <p>A visual journey through Meatlovers</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Gallery Stats -->
+            <div class="gallery-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Dishes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Interior Shots</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">Years of Memories</span>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="dishes">Signature Dishes</button>
+                <button class="filter-btn" data-filter="interior">Restaurant Interior</button>
+                <button class="filter-btn" data-filter="events">Events & Celebrations</button>
+                <button class="filter-btn" data-filter="chefs">Our Chefs</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Dishes Category -->
+                <div class="gallery-item" data-category="dishes">
+                    <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="T-Bone steak with rosemary at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>T-Bone Steak</h3>
+                        <p>Our signature steak with herb butter</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dishes">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Nyama Choma platter with kachumbari at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Nyama Choma Platter</h3>
+                        <p>Traditional Kenyan feast</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dishes">
+                    <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Meatlovers signature burger with fries" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Meatlovers Burger</h3>
+                        <p>Double patty with special sauce</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dishes">
+                    <img src="https://images.unsplash.com/photo-1602470523307-dc7736cd46da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Ribeye steak with grilled vegetables at Meatlovers" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ribeye Steak</h3>
+                        <p>Perfectly marbled and grilled</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dishes">
+                    <img src="https://images.unsplash.com/photo-1623172884760-5c33b9a6b6f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Grilled lamb chops at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lamb Chops</h3>
+                        <p>Tender and flavorful</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dishes">
+                    <img src="https://images.unsplash.com/photo-1625943553852-781c6dd46faa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Grilled meat skewers at Meatlovers" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Meat Skewers</h3>
+                        <p>Perfect starter for sharing</p>
+                    </div>
+                </div>
+
+                <!-- Interior Category -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cozy interior of Meatlovers Restaurant Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Main Dining Area</h3>
+                        <p>Warm and inviting atmosphere</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1552566624-52f8a3c8a9b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Outdoor patio seating at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Outdoor Patio</h3>
+                        <p>Perfect for Nairobi evenings</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Private dining area at Meatlovers Restaurant" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Private Dining</h3>
+                        <p>For special occasions</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Bar area at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bar Area</h3>
+                        <p>Craft beers and fine wines</p>
+                    </div>
+                </div>
+
+                <!-- Events Category -->
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Birthday celebration at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Birthday Celebration</h3>
+                        <p>Making memories</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Corporate dinner at Meatlovers Restaurant" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Corporate Event</h3>
+                        <p>Business dinners</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Anniversary dinner at Meatlovers Nairobi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Anniversary Dinner</h3>
+                        <p>Romantic evenings</p>
+                    </div>
+                </div>
+
+                <!-- Chefs Category -->
+                <div class="gallery-item" data-category="chefs">
+                    <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Chef David Omondi preparing meat at Meatlovers" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Chef David</h3>
+                        <p>Founder & Head Chef</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="chefs">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Chef Sarah Wanjiku plating a dish at Meatlovers" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Chef Sarah</h3>
+                        <p>Executive Chef</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="chefs">
+                    <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Chef James Mwangi grilling at Meatlovers" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Chef James</h3>
+                        <p>Grill Master</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram Feed Mockup -->
+            <div class="instagram-feed">
+                <h3 style="margin-bottom: 1rem;">Follow Us on Instagram</h3>
+                <p style="color: var(--gray); margin-bottom: 2rem;">@meatloversnairobi</p>
+
+                <div class="instagram-grid">
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Instagram post 1" loading="lazy">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Instagram post 2" loading="lazy">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Instagram post 3" loading="lazy">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                            alt="Instagram post 4" loading="lazy">
+                    </div>
+                </div>
+
+                <a href="#" class="btn" style="margin-top: 2rem;">Follow @meatloversnairobi</a>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin: 4rem 0;">
+                <h2 style="margin-bottom: 1rem;">Ready to Experience Meatlovers?</h2>
+                <p
+                    style="color: var(--gray); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Come see us in person and create your own memories. Book a table today!</p>
+                <a href="contact" class="btn">Book a Table</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-nav next" id="lightboxNext">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Meatlovers</h3>
+                    <p>Nairobi's premier destination for exceptional grilled meats.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
+                                alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="menu">Menu</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="gallery">Gallery</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>📍 123 Kenyatta Avenue, Nairobi</li>
+                        <li>📞 +254 700 000 000</li>
+                        <li>✉️ info@meatlovers.co.ke</li>
+                        <li>🕒 Mon-Sun: 11:00 - 23:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <span class="current-year">2026</span> Meatlovers Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Gallery Filter Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    // Filter items
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Lightbox Functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+
+            let currentImageIndex = 0;
+            const galleryImages = [];
+
+            // Collect all gallery images
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                const img = item.querySelector('img');
+                const title = item.querySelector('.gallery-overlay h3')?.textContent || '';
+                const desc = item.querySelector('.gallery-overlay p')?.textContent || '';
+
+                galleryImages.push({
+                    src: img.src,
+                    alt: img.alt,
+                    caption: `${title} - ${desc}`
+                });
+
+                item.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function updateLightbox() {
+                const image = galleryImages[currentImageIndex];
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+                lightboxCaption.textContent = image.caption;
+            }
+
+            lightboxClose.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            lightboxPrev.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateLightbox();
+            });
+
+            lightboxNext.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                updateLightbox();
+            });
+
+            // Close lightbox with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                } else if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
+                    lightboxNext.click();
+                }
+            });
+
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+
+    <!-- Image Gallery Schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Meatlovers Restaurant Gallery",
+    "description": "Photos of dishes, interior, and events at Meatlovers Restaurant in Nairobi",
+    "url": "https://meatlovers.co.ke/gallery",
+    "image": [
+      "https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    ],
+    "author": {
+      "@type": "Restaurant",
+      "name": "Meatlovers Restaurant"
+    }
+  }
+  </script>
+</body>
+
+</html>

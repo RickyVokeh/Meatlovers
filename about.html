@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>About Meatlovers Nairobi | Our Story & Passion for Grilled Meats</title>
+    <meta name="title" content="About Meatlovers Nairobi | Our Story & Passion for Grilled Meats">
+    <meta name="description"
+        content="Discover the story behind Meatlovers Nairobi. Learn about our passion for quality meats, our expert chefs, and our commitment to serving the best grilled cuisine in Kenya.">
+    <meta name="keywords"
+        content="about Meatlovers Nairobi, restaurant story Nairobi, meat restaurant history, chefs Nairobi, Kenyan grill restaurant">
+    <meta name="author" content="Meatlovers Restaurant">
+    <meta name="robots" content="index, follow">
+
+    <base href="/Meatlovers/">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://meatlovers.co.ke/about">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meatlovers.co.ke/about">
+    <meta property="og:title" content="About Meatlovers - Nairobi's Premier Meat Restaurant">
+    <meta property="og:description"
+        content="Discover the story behind Meatlovers Nairobi. Passion for quality meats since 2010.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://meatlovers.co.ke/about">
+    <meta property="twitter:title" content="About Meatlovers - Nairobi's Premier Meat Restaurant">
+    <meta property="twitter:description"
+        content="Discover the story behind Meatlovers Nairobi. Passion for quality meats since 2010.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .story-content h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        .story-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .values-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #3a2820 100%);
+            color: white;
+            padding: 5rem 0;
+            margin: 4rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .value-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .chef-section {
+            margin: 4rem 0;
+        }
+
+        .chef-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .chef-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .chef-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .chef-image {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .chef-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .chef-card:hover .chef-image img {
+            transform: scale(1.1);
+        }
+
+        .chef-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .chef-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .chef-title {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .chef-bio {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .timeline-section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            background: var(--light);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 40px);
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            left: calc(50% + 40px);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .milestone-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .milestone-stat {
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .milestone-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .milestone-label {
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-extra {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-extra::before {
+            content: '"';
+            font-size: 8rem;
+            color: var(--accent);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: var(--font-heading);
+        }
+
+        .testimonial-extra p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-extra-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-extra-title {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-story {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-image {
+                order: -1;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+
+            .milestone-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .milestone-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .chef-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="/" class="logo">Meat<span>Lovers</span></a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="">Home</a></li>
+                        <li><a href="menu">Menu</a></li>
+                        <li><a href="about" class="active">About Us</a></li>
+                        <li><a href="gallery">Gallery</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>Our Story</h1>
+            <p>A passion for meat, a love for Nairobi</p>
+        </div>
+    </section>
+
+    <!-- Main About Content -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Story Section -->
+            <div class="about-story">
+                <div class="story-content">
+                    <h2>The Meatlovers Journey</h2>
+                    <p>Founded in 2010, Meatlovers Restaurant began with a simple vision: to bring Nairobi the finest
+                        grilled meat experience imaginable. What started as a small family-run eatery with just 10 seats
+                        has grown into one of the city's most beloved dining destinations.</p>
+                    <p>Our founder, Chef David Omondi, grew up in the countryside of Kenya, where he learned the art of
+                        traditional meat grilling from his grandmother. Those childhood memories of gathering around
+                        open fires, the aroma of sizzling meat, and the joy of sharing meals with loved ones became the
+                        inspiration for Meatlovers.</p>
+                    <p>Today, we combine those traditional techniques with modern culinary innovation. We source our
+                        meats exclusively from local Kenyan farmers who share our commitment to quality and
+                        sustainability. Every cut is carefully selected, expertly seasoned, and grilled to perfection.
+                    </p>
+                    <p>But Meatlovers is more than just a restaurant – it's a gathering place. It's where families
+                        celebrate, friends reconnect, and memories are made over exceptional food. Our team is dedicated
+                        to creating an atmosphere that's warm, welcoming, and authentically Kenyan.</p>
+                    <a href="contact" class="btn" style="margin-top: 1rem;">Visit Us Today</a>
+                </div>
+
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Founder Chef David Omondi at Meatlovers Restaurant Nairobi" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Milestone Stats -->
+            <div class="milestone-stats">
+                <div class="milestone-stat">
+                    <span class="milestone-number">15+</span>
+                    <span class="milestone-label">Years of Excellence</span>
+                </div>
+                <div class="milestone-stat">
+                    <span class="milestone-number">50k+</span>
+                    <span class="milestone-label">Happy Customers</span>
+                </div>
+                <div class="milestone-stat">
+                    <span class="milestone-number">30+</span>
+                    <span class="milestone-label">Team Members</span>
+                </div>
+                <div class="milestone-stat">
+                    <span class="milestone-number">20+</span>
+                    <span class="milestone-label">Awards Won</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Our Core Values</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9);">The
+                principles that guide everything we do, from selecting ingredients to serving you.</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🥩</div>
+                    <h3>Quality First</h3>
+                    <p>We never compromise on quality. Our meats are carefully selected from trusted local farms,
+                        ensuring the finest cuts for our guests.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🔥</div>
+                    <h3>Traditional Techniques</h3>
+                    <p>We honor Kenyan grilling traditions while embracing innovation. Every dish is prepared with
+                        techniques passed down through generations.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>We're proud to be part of Nairobi's vibrant community. We support local farmers and give back
+                        through various initiatives.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>Passion</h3>
+                    <p>Every dish we serve is made with love and dedication. Our team genuinely cares about creating
+                        memorable dining experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Section -->
+    <section class="chef-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Culinary Team</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--gray);">The talented chefs
+                behind your memorable meals.</p>
+
+            <div class="chef-grid">
+                <!-- Chef 1 -->
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Chef David Omondi - Founder and Head Chef at Meatlovers Nairobi" loading="lazy">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Chef David Omondi</h3>
+                        <span class="chef-title">Founder & Head Chef</span>
+                        <p class="chef-bio">With over 20 years of culinary experience, Chef David brings his passion for
+                            traditional Kenyan grilling to every dish. Trained in Nairobi and internationally, he's the
+                            heart and soul of Meatlovers.</p>
+                    </div>
+                </div>
+
+                <!-- Chef 2 -->
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Chef Sarah Wanjiku - Executive Chef at Meatlovers Nairobi" loading="lazy">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Chef Sarah Wanjiku</h3>
+                        <span class="chef-title">Executive Chef</span>
+                        <p class="chef-bio">A graduate of the Kenya Utalii College, Chef Sarah specializes in meat
+                            preparation and flavor combinations. Her innovative approach has earned Meatlovers numerous
+                            culinary awards.</p>
+                    </div>
+                </div>
+
+                <!-- Chef 3 -->
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Chef James Mwangi - Grill Master at Meatlovers Nairobi" loading="lazy">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Chef James Mwangi</h3>
+                        <span class="chef-title">Grill Master</span>
+                        <p class="chef-bio">James has perfected the art of open-fire grilling over 15 years. His
+                            expertise in temperature control and seasoning ensures every steak is cooked to perfection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto; color: var(--gray);">Key milestones in the
+                Meatlovers story.</p>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2010</span>
+                        <h3>The Beginning</h3>
+                        <p>Meatlovers opens its doors with just 10 seats and a simple charcoal grill. Word quickly
+                            spreads about "the best nyama choma in town."</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2013</span>
+                        <h3>First Expansion</h3>
+                        <p>Due to overwhelming demand, we expand to a larger location with 80 seats and introduce our
+                            signature T-Bone steak.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2016</span>
+                        <h3>Award Winner</h3>
+                        <p>Meatlovers wins "Best Restaurant in Nairobi" at the Kenya Food Awards, recognizing our
+                            commitment to quality.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2019</span>
+                        <h3>Kitchen Renovation</h3>
+                        <p>We invest in state-of-the-art grilling equipment while preserving our traditional techniques,
+                            allowing us to serve even more customers.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h3>Community Hub</h3>
+                        <p>Meatloves becomes more than a restaurant – we launch cooking classes, community events, and a
+                            farm partnership program.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Testimonial -->
+    <section class="section">
+        <div class="container">
+            <div class="testimonial-extra">
+                <p>"Meatlovers isn't just a restaurant – it's a celebration of Kenyan culinary heritage. Every visit
+                    feels like coming home, and every meal is a masterpiece. This is where Nairobi comes to eat,
+                    celebrate, and create memories."</p>
+                <div class="testimonial-extra-author">- Kenya Food Magazine</div>
+                <div class="testimonial-extra-title">Restaurant of the Year 2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background: var(--light);">
+        <div class="container" style="text-align: center;">
+            <h2 style="margin-bottom: 1.5rem;">Experience the Meatlovers Difference</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--gray);">Join us for an unforgettable dining
+                experience. Whether it's a family celebration, business dinner, or casual meal with friends, we're ready
+                to welcome you.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="contact" class="btn">Book a Table</a>
+                <a href="menu" class="btn btn-outline">View Our Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Meatlovers</h3>
+                    <p>Nairobi's premier destination for exceptional grilled meats. Experience the perfect blend of
+                        quality, taste, and ambiance since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
+                        <a href="#" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
+                                alt="Instagram"></a>
+                        <a href="#" aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="menu">Menu</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="gallery">Gallery</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>📍 123 Kenyatta Avenue, Nairobi CBD, Kenya</li>
+                        <li>📞 +254 700 000 000</li>
+                        <li>✉️ info@meatlovers.co.ke</li>
+                        <li>🕒 Mon-Sun: 11:00 - 23:00</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for special offers and events</p>
+                    <form style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email"
+                            style="padding: 0.5rem; width: 100%; margin-bottom: 0.5rem; border: none; border-radius: 4px;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <span class="current-year">2026</span> Meatlovers Restaurant. All rights reserved. | <a
+                        href="privacy-policy" style="color: rgba(255,255,255,0.6);">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- About Page Schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Meatlovers Restaurant Nairobi",
+    "description": "Learn about the story, values, and team behind Meatlovers, Nairobi's premier meat restaurant.",
+    "mainEntity": {
+      "@type": "Restaurant",
+      "name": "Meatlovers Restaurant",
+      "founder": {
+        "@type": "Person",
+        "name": "David Omondi",
+        "jobTitle": "Founder & Head Chef"
+      },
+      "foundingDate": "2010",
+      "foundingLocation": "Nairobi, Kenya",
+      "knowsAbout": ["Kenyan Cuisine", "Grilled Meats", "Nyama Choma", "Steakhouse"],
+      "areaServed": "Nairobi",
+      "award": ["Best Restaurant in Nairobi 2016", "Kenya Food Awards 2024"]
+    }
+  }
+  </script>
+
+    <!-- Person Schema for Chefs -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Person",
+        "name": "David Omondi",
+        "jobTitle": "Founder & Head Chef",
+        "worksFor": {
+          "@type": "Restaurant",
+          "name": "Meatlovers Restaurant"
+        },
+        "description": "With over 20 years of culinary experience, Chef David brings his passion for traditional Kenyan grilling to every dish."
+      },
+      {
+        "@type": "Person",
+        "name": "Sarah Wanjiku",
+        "jobTitle": "Executive Chef",
+        "worksFor": {
+          "@type": "Restaurant",
+          "name": "Meatlovers Restaurant"
+        },
+        "description": "A graduate of Kenya Utalii College, specializing in meat preparation and flavor combinations."
+      },
+      {
+        "@type": "Person",
+        "name": "James Mwangi",
+        "jobTitle": "Grill Master",
+        "worksFor": {
+          "@type": "Restaurant",
+          "name": "Meatlovers Restaurant"
+        },
+        "description": "15 years of experience in open-fire grilling and temperature control."
+      }
+    ]
+  }
+  </script>
+</body>
+
+</html>
