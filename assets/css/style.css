@@ -144,13 +144,13 @@ header {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary);
+    color: rgb(241, 146, 20);
     text-decoration: none;
     letter-spacing: -0.5px;
 }
 
 .logo span {
-    color: var(--secondary);
+    color: var(--primary);
 }
 
 .nav-menu {
