@@ -413,6 +413,47 @@ header {
     letter-spacing: 1px;
 }
 
+/* Happy Hours Minimal CSS */
+.happy-hours-minimal {
+    color: var(--dark);
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.happy-mini-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--dark);
+    padding: 0.5rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.happy-hours-minimal h2 {
+    color: rgb(252, 177, 15);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.happy-hours-minimal p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.happy-mini-tag {
+    margin: 1.5rem 0;
+}
+
+.happy-mini-tag span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+
 /* ===== TESTIMONIALS ===== */
 .testimonials {
     background: var(--light-gray);
@@ -754,6 +795,14 @@ footer {
 
     .stat-label {
         font-size: 0.85rem;
+    }
+
+    .happy-hours-minimal h2 {
+        font-size: 1.8rem;
+    }
+
+    .happy-hours-minimal p {
+        font-size: 1rem;
     }
 
     /* Testimonials */
