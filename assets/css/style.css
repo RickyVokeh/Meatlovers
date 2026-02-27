@@ -5,6 +5,19 @@
     box-sizing: border-box;
 }
 
+
+@font-face {
+    font-family: 'Ferro Rosso';
+    src: url('assets/fonts/FerroRosso.woff2') format('woff2'),
+        url('assets/fonts/FerroRosso.woff') format('woff'),
+        url('../fonts/FerroRosso.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+
+}
+
+
 :root {
     /* Color Palette - Modern meat-centric colors */
     --primary: #b22222;
@@ -24,9 +37,12 @@
     --light-gray: #e8e0d5;
     /* Borders, backgrounds */
 
-    /* Typography */
+    /* Typography 
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif; */
+
+    --font-heading: 'Ferro Rosso', 'Playfair Display', serif;
+    --font-body: 'Ferro Rosso', 'Poppins', sans-serif;
 
     /* Spacing */
     --container-width: 1200px;
@@ -37,9 +53,9 @@
     --transition: all 0.3s ease;
 }
 
-/* ===== TYPOGRAPHY ===== */
+/* ===== TYPOGRAPHY ===== 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
-
+*/
 body {
     font-family: var(--font-body);
     color: var(--dark);
