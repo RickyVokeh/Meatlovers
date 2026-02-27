@@ -43,18 +43,19 @@
 /* Ferro Rosso font for Hero H1 only */
 @font-face {
     font-family: 'Ferro Rosso';
-    src: url('assets/fonts/FerroRosso.woff2') format('woff2'),
+    src:
         url('../fonts/FerroRosso.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+/*
 .hero h1 {
     font-family: 'Ferro Rosso', 'Playfair Display', serif !important;
-    /* The !important ensures it overrides any other styles */
+   
 }
-
+*/
 
 /* ===== TYPOGRAPHY ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
