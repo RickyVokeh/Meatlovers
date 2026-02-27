@@ -5,19 +5,6 @@
     box-sizing: border-box;
 }
 
-
-@font-face {
-    font-family: 'Ferro Rosso';
-    src: url('assets/fonts/FerroRosso.woff2') format('woff2'),
-        url('assets/fonts/FerroRosso.woff') format('woff'),
-        url('../fonts/FerroRosso.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-
-}
-
-
 :root {
     /* Color Palette - Modern meat-centric colors */
     --primary: #b22222;
@@ -37,12 +24,12 @@
     --light-gray: #e8e0d5;
     /* Borders, backgrounds */
 
-    /* Typography 
+    /* Typography */
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif; */
-
+    --font-body: 'Poppins', sans-serif;
+    /*
     --font-heading: 'Ferro Rosso', 'Playfair Display', serif;
-    --font-body: 'Ferro Rosso', 'Poppins', sans-serif;
+    --font-body: 'Ferro Rosso', 'Poppins', sans-serif; */
 
     /* Spacing */
     --container-width: 1200px;
@@ -53,9 +40,25 @@
     --transition: all 0.3s ease;
 }
 
-/* ===== TYPOGRAPHY ===== 
+/* Ferro Rosso font for Hero H1 only */
+@font-face {
+    font-family: 'Ferro Rosso';
+    src: url('assets/fonts/FerroRosso.woff2') format('woff2'),
+        url('../fonts/FerroRosso.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.hero h1 {
+    font-family: 'Ferro Rosso', 'Playfair Display', serif !important;
+    /* The !important ensures it overrides any other styles */
+}
+
+
+/* ===== TYPOGRAPHY ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
-*/
+
 body {
     font-family: var(--font-body);
     color: var(--dark);
@@ -67,7 +70,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -156,6 +159,7 @@ header {
     height: 80px;
 }
 
+/*
 .logo {
     font-family: var(--font-heading);
     font-size: 1.8rem;
@@ -166,6 +170,35 @@ header {
 }
 
 .logo span {
+    color: var(--primary);
+}
+*/
+/* Logo container */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+/* Logo image */
+.logo img {
+    display: block;
+    object-fit: contain;
+}
+
+/* Logo text with Ferro Rosso */
+.logo-text {
+    font-family: 'Ferro Rosso', 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(241, 146, 20);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.logo-text span {
     color: var(--primary);
 }
 
@@ -637,6 +670,15 @@ footer {
     }
 }
 
+.logo img {
+    height: 80px;
+    width: 80px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+}
+
 /* Tablet Styles */
 @media (max-width: 768px) {
 
@@ -732,6 +774,19 @@ footer {
         z-index: 999;
         transition: opacity 0.3s ease;
         pointer-events: none;
+    }
+
+    .logo {
+        gap: 10px;
+    }
+
+    .logo img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
     }
 
     /* Hero Section */
@@ -937,9 +992,18 @@ footer {
         height: 70px;
     }
 
+    .logo {
+        gap: 8px;
+    }
+
     .logo img {
-        height: 40px;
-        width: auto;
+        height: 50px;
+        width: 50px;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+        white-space: normal;
     }
 
     .nav-menu {
