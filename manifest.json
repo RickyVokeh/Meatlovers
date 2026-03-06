@@ -2,7 +2,7 @@
   "name": "Meatlovers Restaurant Nairobi",
   "short_name": "Meatlovers",
   "description": "Nairobi's premier destination for exceptional grilled meats. Experience the finest nyama choma, steaks, and Kenyan cuisine.",
-  "start_url": "/",
+  "start_url": "/Meatlovers/",
   "display": "standalone",
   "background_color": "#f8f5f0",
   "theme_color": "#b22222",
