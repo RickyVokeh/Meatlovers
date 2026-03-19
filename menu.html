@@ -108,6 +108,227 @@
             border-left: 4px solid rgb(245, 152, 14);
         }
 
+        /* ===== PDF MENU SECTION ===== */
+        .pdf-menu-section {
+            background: linear-gradient(135deg, #fff5eb 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative background elements */
+        .pdf-menu-section::before {
+            content: '📄';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 8rem;
+            opacity: 0.03;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .pdf-menu-section::after {
+            content: '🍽️';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 8rem;
+            opacity: 0.03;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .pdf-menu-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-gray);
+        }
+
+        .pdf-menu-icon {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .pdf-menu-icon svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        .pdf-menu-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pdf-menu-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .pdf-menu-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .pdf-view-btn {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .pdf-view-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .pdf-download-btn {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .pdf-download-btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .pdf-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .pdf-btn:hover svg {
+            transform: translateY(2px);
+        }
+
+        .pdf-menu-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0 1.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px dashed var(--light-gray);
+            border-bottom: 1px dashed var(--light-gray);
+        }
+
+        .pdf-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pdf-feature-icon {
+            font-size: 1.8rem;
+        }
+
+        .pdf-feature-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .pdf-menu-update {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .pdf-menu-wrapper {
+                padding: 2rem 1.5rem;
+            }
+
+            .pdf-menu-title {
+                font-size: 1.8rem;
+            }
+
+            .pdf-menu-description {
+                font-size: 1rem;
+            }
+
+            .pdf-menu-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .pdf-btn {
+                justify-content: center;
+            }
+
+            .pdf-menu-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .pdf-menu-section::before,
+            .pdf-menu-section::after {
+                font-size: 5rem;
+                opacity: 0.02;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pdf-menu-wrapper {
+                padding: 1.5rem 1rem;
+            }
+
+            .pdf-menu-title {
+                font-size: 1.5rem;
+            }
+
+            .pdf-menu-icon svg {
+                width: 48px;
+                height: 48px;
+            }
+
+            .pdf-feature-icon {
+                font-size: 1.5rem;
+            }
+
+            .pdf-feature-text {
+                font-size: 0.85rem;
+            }
+
+            .pdf-menu-section::before,
+            .pdf-menu-section::after {
+                display: none;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 360px) {
+            .pdf-menu-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-item {
                 flex-direction: column;
@@ -466,14 +687,66 @@
         </div>
     </section>
 
-    <section class="section" style="background: var(--light);">
-        <div class="container" style="text-align: center;">
-            <h2 style="margin-bottom: 1.5rem;">Explore the meatlovers complete menu</h2>
-            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--gray);">You can view or download our menu
-                online to explore the offers and all food offered at meatlovers restaurant</p>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="contact" class="btn">Book a Table</a>
-                <a href="menu" class="btn btn-outline">View Our Menu</a>
+    <!-- PDF Menu Section -->
+    <section class="section pdf-menu-section">
+        <div class="container">
+            <div class="pdf-menu-wrapper">
+                <div class="pdf-menu-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h2 class="pdf-menu-title">Explore the complete Meatlovers menu</h2>
+                <p class="pdf-menu-description">Download our full menu with prices, descriptions, and daily specials.
+                    Perfect for offline viewing or sharing with friends.</p>
+
+                <div class="pdf-menu-buttons">
+                    <a href="assets/img/dishes/menu.pdf" class="btn pdf-btn pdf-view-btn" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        View menu
+                    </a>
+                    <a href="assets/img/dishes/menu.pdf" class="btn pdf-btn pdf-download-btn"
+                        download="Meatlovers-Menu.pdf">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download menu
+                    </a>
+                </div>
+
+                <div class="pdf-menu-features">
+                    <div class="pdf-feature">
+                        <span class="pdf-feature-icon">📄</span>
+                        <span class="pdf-feature-text">16 Pages</span>
+                    </div>
+                    <div class="pdf-feature">
+                        <span class="pdf-feature-icon">📊</span>
+                        <span class="pdf-feature-text">Full Price List</span>
+                    </div>
+                    <div class="pdf-feature">
+                        <span class="pdf-feature-icon">🍖</span>
+                        <span class="pdf-feature-text">Signature Dishes</span>
+                    </div>
+                    <div class="pdf-feature">
+                        <span class="pdf-feature-icon">📱</span>
+                        <span class="pdf-feature-text">Mobile Friendly</span>
+                    </div>
+                </div>
+
+                <p class="pdf-menu-update">Last updated: March 2026</p>
             </div>
         </div>
     </section>
