@@ -30,18 +30,31 @@
 
     <style>
         /* Contact page specific styles */
+        /* Contact page specific styles */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
             margin-bottom: 3rem;
         }
 
+        /* Contact Information Card */
         .contact-info-card {
             background: white;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        /* Booking Information Card */
+        .booking-info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            text-align: center;
         }
 
         .contact-detail {
@@ -80,53 +93,238 @@
             color: var(--gray);
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        /* Booking Methods Styles */
+        .booking-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .form-group label {
-            display: block;
+        .booking-method {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.2rem;
+            background: var(--light);
+            border-radius: 12px;
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .booking-method:hover {
+            transform: translateX(5px);
+            background: var(--light-gray);
+        }
+
+        .booking-method-icon {
+            width: 50px;
+            height: 50px;
+            background: rgb(245, 152, 14);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .booking-method-content {
+            flex: 1;
+        }
+
+        .booking-method-content h3 {
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+
+        .booking-method-content p {
+            font-size: 0.85rem;
+            color: var(--gray);
             margin-bottom: 0.5rem;
-            font-weight: 500;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--light-gray);
-            border-radius: 4px;
-            font-family: inherit;
+        .booking-contact-link {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            margin-right: 1rem;
             transition: var(--transition);
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(178, 34, 34, 0.1);
+        .booking-contact-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(2px);
         }
 
-        .form-group input.error,
-        .form-group select.error,
-        .form-group textarea.error {
-            border-color: #dc3545;
-        }
-
-        .error-message {
-            color: #dc3545;
-            font-size: 0.85rem;
+        .whatsapp-link {
+            background: #25D366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
             margin-top: 0.3rem;
-            display: none;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .whatsapp-link:hover {
+            background: #128C7E;
+            color: white;
+            transform: translateX(2px);
         }
+
+        .booking-note {
+            background: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .booking-note p {
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .booking-note ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+            list-style: disc;
+        }
+
+        .booking-note li {
+            margin-bottom: 0.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .booking-response-time {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* Quick Hours Reference */
+        .quick-hours {
+            margin-top: 2rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hours-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 4px;
+        }
+
+        .hours-item .day {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .contact-grid {
+                gap: 2rem;
+            }
+
+            .booking-method {
+                padding: 1rem;
+            }
+
+            .booking-method-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .booking-method {
+                padding: 1rem;
+            }
+
+            .booking-method-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .booking-method-content h3 {
+                font-size: 1rem;
+            }
+
+            .booking-contact-link {
+                font-size: 0.9rem;
+                margin-right: 0.5rem;
+            }
+
+            .whatsapp-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .booking-method {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .booking-method-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+            }
+
+            .booking-method-content {
+                text-align: center;
+            }
+
+            .booking-contact-link {
+                display: inline-block;
+                margin: 0.2rem 0;
+            }
+
+            .contact-info-card,
+            .booking-info-card {
+                padding: 1.5rem;
+            }
+        }
+
 
         .map-container {
             margin-top: 3rem;
@@ -258,7 +456,7 @@
                         </div>
                     </div>
 
-                    <!-- Quick Hours Reference -->
+                    <!-- Quick Hours Reference 
                     <div style="margin-top: 2rem;">
                         <h3 style="margin-bottom: 1rem;">Quick Hours</h3>
                         <div class="hours-grid">
@@ -279,99 +477,68 @@
                                 <div>12:00 - 23:00</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
-                <!-- Booking Form -->
+                <!-- Booking Information - Call & WhatsApp -->
                 <div>
-                    <h2 style="margin-bottom: 2rem;">Book a Table</h2>
-                    <form id="contactForm" class="contact-info-card">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                            <div class="error-message" id="nameError"></div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                                <div class="error-message" id="emailError"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                                <div class="error-message" id="phoneError"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date">Date *</label>
-                                <input type="date" id="date" name="date" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="time">Time *</label>
-                                <select id="time" name="time" required>
-                                    <option value="">Select time</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="12:30">12:30 PM</option>
-                                    <option value="13:00">1:00 PM</option>
-                                    <option value="13:30">1:30 PM</option>
-                                    <option value="14:00">2:00 PM</option>
-                                    <option value="18:00">6:00 PM</option>
-                                    <option value="18:30">6:30 PM</option>
-                                    <option value="19:00">7:00 PM</option>
-                                    <option value="19:30">7:30 PM</option>
-                                    <option value="20:00">8:00 PM</option>
-                                    <option value="20:30">8:30 PM</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="guests">Number of Guests *</label>
-                                <select id="guests" name="guests" required>
-                                    <option value="">Select</option>
-                                    <option value="1">1 Person</option>
-                                    <option value="2">2 People</option>
-                                    <option value="3">3 People</option>
-                                    <option value="4">4 People</option>
-                                    <option value="5">5 People</option>
-                                    <option value="6">6 People</option>
-                                    <option value="7">7 People</option>
-                                    <option value="8">8+ People (call us)</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="occasion">Occasion (Optional)</label>
-                                <select id="occasion" name="occasion">
-                                    <option value="">Select</option>
-                                    <option value="birthday">Birthday</option>
-                                    <option value="anniversary">Anniversary</option>
-                                    <option value="business">Business Dinner</option>
-                                    <option value="date">Date Night</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Special Requests</label>
-                            <textarea id="message" name="message" rows="3"
-                                placeholder="Dietary restrictions, allergies, special occasions..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn" style="width: 100%;">Request Booking</button>
-
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--gray); text-align: center;">
-                            We'll confirm your booking within 2 hours during operating hours.
+                    <div class="contact-info-card booking-info-card">
+                        <h2 style="margin-bottom: 1.5rem;">Book a Table</h2>
+                        <p style="color: var(--gray); margin-bottom: 2rem; text-align: center;">
+                            To make a reservation, please contact us directly via call, email, or WhatsApp.
+                            Our team will assist you within minutes.
                         </p>
-                    </form>
+
+                        <!-- Contact Methods -->
+                        <div class="booking-methods">
+                            <!-- Call Option -->
+                            <div class="booking-method">
+                                <div class="booking-method-icon">📞</div>
+                                <div class="booking-method-content">
+                                    <h3>Call Us</h3>
+                                    <p>Speak directly with our reservations team</p>
+                                    <a href="tel:+254701616385" class="booking-contact-link">+254 701 616385</a>
+                                    <a href="tel:+254740784060" class="booking-contact-link">+254 740 784060</a>
+                                </div>
+                            </div>
+
+                            <!-- Email Option -->
+                            <div class="booking-method">
+                                <div class="booking-method-icon">✉️</div>
+                                <div class="booking-method-content">
+                                    <h3>Email Us</h3>
+                                    <p>Send us your reservation request</p>
+                                    <a href="mailto:reservations@meatlovers.co.ke"
+                                        class="booking-contact-link">reservations@meatlovers.co.ke</a>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp Option -->
+                            <div class="booking-method whatsapp-method">
+                                <div class="booking-method-icon">💬</div>
+                                <div class="booking-method-content">
+                                    <h3>WhatsApp Us</h3>
+                                    <p>Message us directly for quick reservations</p>
+                                    <a href="https://wa.me/254701616385?text=Hello%20Meatlovers%2C%20I'd%20like%20to%20book%20a%20table%20for%20"
+                                        class="booking-contact-link whatsapp-link" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Chat on WhatsApp →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Info Note -->
+                        <div class="booking-note">
+                            <p>📋 <strong>What to include when booking:</strong></p>
+                            <ul>
+                                <li>Number of guests</li>
+                                <li>Preferred date and time</li>
+                                <li>Any special requests or dietary restrictions</li>
+                            </ul>
+                            <p class="booking-response-time">⏱️ We respond within 30 minutes during operating hours</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -479,8 +646,8 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/form_validation.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/form_validation.js" defer></script>
 
     <!-- FAQ Schema -->
     <script type="application/ld+json">
