@@ -109,13 +109,13 @@
   "categories": ["restaurant", "food", "kenyan cuisine", "grill"],
   "screenshots": [
     {
-      "src": "assets/img/dishes/beef stir fry.webp",
+      "src": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "label": "Meatlovers Restaurant Hero"
     },
     {
-      "src": "assets/img/dishes/mbuzi-wet-fry.webp",
+      "src": "https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "label": "Signature T-Bone Steak"
