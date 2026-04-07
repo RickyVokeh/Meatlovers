@@ -38,95 +38,226 @@
     <script src="assets/js/url-router.js" defer></script>
 
     <style>
-        /* Gallery specific styles */
+        /* ===== GALLERY PAGE CINEMATIC STYLES ===== */
+
+        /* Hero Section - Minimalist Dark */
         .gallery-hero {
-            height: 30vh;
-            min-height: 200px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            height: 45vh;
+            min-height: 380px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7) 100%),
                 url('assets/img/hero/interior3.jpeg');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            position: relative;
+            margin-bottom: 0;
         }
 
+        .gallery-hero .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-hero .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            letter-spacing: 0.3px;
+        }
+
+        /* Stats Section - Modern Cards */
+        .gallery-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: -40px 0 4rem;
+            text-align: center;
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 5;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            line-height: 1.2;
+            font-family: var(--font-heading);
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Filter Bar - Minimal & Elegant */
         .gallery-filter {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0 3rem;
+            gap: 0.75rem;
+            margin: 0 0 3rem;
             flex-wrap: wrap;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 1rem;
         }
 
         .filter-btn {
-            padding: 0.5rem 1.5rem;
-            border: 2px solid var(--primary);
+            padding: 0.6rem 1.8rem;
+            border: none;
             background: transparent;
-            color: var(--primary);
-            border-radius: 30px;
+            color: var(--dark);
+            border-radius: 40px;
             cursor: pointer;
             font-weight: 500;
-            transition: var(--transition);
+            transition: all 0.25s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
         }
 
-        .filter-btn:hover,
+        .filter-btn:hover {
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--primary);
+        }
+
         .filter-btn.active {
             background: var(--primary);
             color: white;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
         }
 
+        /* Gallery Grid - Masonry Style with Overlays */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 4rem;
         }
 
+        .gallery-category-header {
+            grid-column: 1 / -1;
+            margin: 20px 0 10px;
+            text-align: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hide category headers when filtered - will be controlled by JS */
+        .gallery-category-header.filtered-hidden {
+            display: none;
+        }
+
+        .gallery-category-title {
+            font-size: 2rem;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-category-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: var(--primary);
+            margin: 12px auto 0;
+            border-radius: 3px;
+        }
+
+        /* Gallery Item - Cinematic Cards */
         .gallery-item {
             position: relative;
-            border-radius: 8px;
+            border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             aspect-ratio: 4/3;
+            background: #f5f3ef;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.6s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
+        /* Modern Overlay - Bottom Gradient + Slide Up Text */
         .gallery-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
             color: white;
-            padding: 1.5rem 1rem 1rem;
+            padding: 1.8rem 1.5rem 1.2rem;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(-5px);
         }
 
         .gallery-overlay h3 {
             color: white;
             margin-bottom: 0.3rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
         }
 
         .gallery-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin: 0;
         }
 
-        /* Lightbox */
+        /* Lightbox - Fullscreen Cinematic */
         .lightbox {
             display: none;
             position: fixed;
@@ -134,12 +265,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.96);
             z-index: 2000;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px);
         }
 
         .lightbox.active {
@@ -149,8 +281,11 @@
 
         .lightbox-content {
             max-width: 90%;
-            max-height: 90%;
+            max-height: 85%;
             position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .lightbox-content img {
@@ -158,27 +293,41 @@
             height: auto;
             max-height: 80vh;
             object-fit: contain;
-            border-radius: 4px;
+            display: block;
         }
 
         .lightbox-close {
             position: absolute;
-            top: -40px;
-            right: 0;
+            top: 20px;
+            right: 30px;
             color: white;
-            font-size: 2rem;
+            font-size: 2.8rem;
             cursor: pointer;
             background: none;
             border: none;
-            padding: 0.5rem;
+            z-index: 2001;
+            transition: all 0.2s;
+            opacity: 0.7;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         .lightbox-caption {
             position: absolute;
-            bottom: -40px;
+            bottom: 20px;
             left: 0;
+            right: 0;
+            text-align: center;
             color: white;
             font-size: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px;
+            margin: 0 20px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
         }
 
         .lightbox-nav {
@@ -186,140 +335,214 @@
             top: 50%;
             transform: translateY(-50%);
             color: white;
-            font-size: 2rem;
+            font-size: 2.2rem;
             cursor: pointer;
             background: rgba(0, 0, 0, 0.5);
-            padding: 1rem;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            backdrop-filter: blur(8px);
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .lightbox-nav.prev {
-            left: 20px;
-        }
-
-        .lightbox-nav.next {
-            right: 20px;
+            border-radius: 60px;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .lightbox-nav:hover {
             background: var(--primary);
+            transform: translateY(-50%) scale(1.05);
         }
 
-        .gallery-category-header {
-            grid-column: 1 / -1;
-            text-align: center;
-            margin: 40px 0 20px;
+        .lightbox-nav.prev {
+            left: 30px;
         }
 
-        .gallery-category-title {
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 25px;
+        .lightbox-nav.next {
+            right: 30px;
         }
 
-        .gallery-category-title::after {
-            content: "";
-            display: block;
-            width: 80px;
-            /* divider length */
-            height: 3px;
-            /* divider thickness */
-            background: #c59d5f;
-            /* divider color */
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .gallery-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin: 4rem 0;
-            text-align: center;
-            background: var(--light);
-            padding: 3rem;
-            border-radius: 8px;
-        }
-
-        .stat-item {
-            color: var(--dark);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 1rem;
-        }
-
+        /* Instagram Feed - Clean Grid */
         .instagram-feed {
-            background: var(--light);
-            padding: 3rem;
-            border-radius: 8px;
+            background: linear-gradient(145deg, #ffffff 0%, #fef9f2 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 32px;
             text-align: center;
             margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(230, 126, 34, 0.15);
+        }
+
+        .instagram-feed h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
         }
 
         .instagram-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+            gap: 1.2rem;
             margin: 2rem 0;
         }
 
         .instagram-item {
             aspect-ratio: 1;
-            border-radius: 8px;
+            border-radius: 20px;
             overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .instagram-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .instagram-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.5s;
         }
 
         .instagram-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
+        }
+
+        /* CTA Section */
+        .gallery-cta {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            padding: 3rem 2rem;
+            background: var(--secondary);
+            border-radius: 32px;
+            color: white;
+        }
+
+        .gallery-cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-cta p {
+            max-width: 550px;
+            margin: 0 auto 1.8rem;
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .gallery-hero {
+                height: 35vh;
+                min-height: 280px;
+            }
+
+            .gallery-hero .hero-content h1 {
+                font-size: 2.4rem;
             }
 
             .gallery-stats {
                 grid-template-columns: repeat(2, 1fr);
-                padding: 2rem;
+                margin-top: -30px;
+                padding: 1.8rem;
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .gallery-filter {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.8rem;
             }
 
             .instagram-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .lightbox-nav {
+                width: 42px;
+                height: 42px;
+                font-size: 1.8rem;
+            }
+
+            .lightbox-nav.prev {
+                left: 15px;
+            }
+
+            .lightbox-nav.next {
+                right: 15px;
             }
         }
 
         @media (max-width: 480px) {
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 1.2rem;
             }
 
             .gallery-stats {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
+
+            .gallery-category-title {
+                font-size: 1.6rem;
+            }
+
+            .instagram-feed {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item {
+            animation: fadeUp 0.6s ease backwards;
+        }
+
+        .gallery-item:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .gallery-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .gallery-item:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .gallery-item:nth-child(4) {
+            animation-delay: 0.2s;
         }
     </style>
 </head>
@@ -354,59 +577,58 @@
         </div>
     </header>
 
-    <!-- Gallery Hero -->
+    <!-- Gallery Hero - Cinematic -->
     <section class="gallery-hero">
         <div class="hero-content">
-            <h1>Our Gallery</h1>
-            <p>A visual journey through Meatlovers</p>
+            <h1>Moments & Flavors</h1>
+            <p>A visual journey through the heart of Meatlovers</p>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="section">
+    <section class="section" style="padding-top: 0;">
         <div class="container">
 
-            <!-- Gallery Stats -->
+            <!-- Gallery Stats - Modern Cards -->
             <div class="gallery-stats">
                 <div class="stat-item">
                     <span class="stat-number">50+</span>
-                    <span class="stat-label">Dishes</span>
+                    <span class="stat-label">Signature Dishes</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">20+</span>
-                    <span class="stat-label">Interior Shots</span>
+                    <span class="stat-label">Interior Views</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">1000+</span>
-                    <span class="stat-label">Happy Customers</span>
+                    <span class="stat-label">Happy Moments</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">15</span>
-                    <span class="stat-label">Years of Memories</span>
+                    <span class="stat-label">Years Legacy</span>
                 </div>
             </div>
 
-            <!-- Filter Buttons -->
+            <!-- Filter Buttons - Minimal Elegance -->
             <div class="gallery-filter">
-                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn active" data-filter="all">All Moments</button>
                 <button class="filter-btn" data-filter="dishes">Signature Dishes</button>
                 <button class="filter-btn" data-filter="interior">Restaurant Interior</button>
                 <button class="filter-btn" data-filter="events">Events & Celebrations</button>
-                <!--<button class="filter-btn" data-filter="chefs">Our Chefs</button> -->
             </div>
 
             <!-- Gallery Grid -->
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Dishes Category -->
-                <div class="gallery-category-header">
+                <div class="gallery-category-header" data-category-header="dishes">
                     <h2 class="gallery-category-title">Signature Dishes</h2>
                 </div>
                 <div class="gallery-item" data-category="dishes">
                     <img src="assets/img/dishes/tuna-paste-salad.jpg"
                         alt="Tuna paste salad with rosemary at Meatlovers Nairobi" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Tuna paste salad</h3>
-                        <p>Our signature salad with herb butter</p>
+                        <h3>Tuna Paste Salad</h3>
+                        <p>Fresh herb butter & citrus dressing</p>
                     </div>
                 </div>
 
@@ -415,7 +637,7 @@
                         alt="Nyama Choma platter with kachumbari at Meatlovers Nairobi" loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Nyama Choma Platter</h3>
-                        <p>Traditional Kenyan feast</p>
+                        <p>Traditional Kenyan feast, grilled to perfection</p>
                     </div>
                 </div>
 
@@ -424,7 +646,7 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Meatlovers Burger</h3>
-                        <p>Double patty with special sauce</p>
+                        <p>Double patty, secret sauce, crispy fries</p>
                     </div>
                 </div>
 
@@ -433,7 +655,7 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Ribeye Steak</h3>
-                        <p>Perfectly marbled and grilled</p>
+                        <p>Perfectly marbled, flame-grilled</p>
                     </div>
                 </div>
 
@@ -442,7 +664,7 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Shawarma</h3>
-                        <p>Tender and flavorful</p>
+                        <p>Spiced & tender, served with garlic sauce</p>
                     </div>
                 </div>
 
@@ -451,12 +673,12 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Meat Skewers</h3>
-                        <p>Perfect starter for sharing</p>
+                        <p>Perfect starter for sharing moments</p>
                     </div>
                 </div>
 
                 <!-- Interior Category -->
-                <div class="gallery-category-header">
+                <div class="gallery-category-header" data-category-header="interior">
                     <h2 class="gallery-category-title">Restaurant Interior</h2>
                 </div>
                 <div class="gallery-item" data-category="interior">
@@ -464,7 +686,7 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Main Dining Area</h3>
-                        <p>Warm and inviting atmosphere</p>
+                        <p>Warm & inviting, crafted for comfort</p>
                     </div>
                 </div>
 
@@ -473,7 +695,7 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Outdoor Patio</h3>
-                        <p>Perfect for Nairobi evenings</p>
+                        <p>Perfect for Nairobi evenings under the stars</p>
                     </div>
                 </div>
 
@@ -482,7 +704,7 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Private Dining</h3>
-                        <p>For special occasions</p>
+                        <p>Intimate spaces for special occasions</p>
                     </div>
                 </div>
 
@@ -490,28 +712,29 @@
                     <img src="assets/img/gallery/interior2.webp" alt="Bar area at Meatlovers Nairobi" loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Bar Area</h3>
-                        <p>Craft beers and fine wines</p>
+                        <p>Craft beers, signature cocktails & fine wines</p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="interior">
                     <img src="assets/img/gallery/interior7.webp" alt="Bar area at Meatlovers Nairobi" loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Bar Area</h3>
-                        <p>Craft beers and fine wines</p>
+                        <h3>Lounge Corner</h3>
+                        <p>Relaxed ambiance, great conversations</p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="interior">
-                    <img src="assets/img/gallery/interior1.webp" alt="Bar area at Meatlovers Nairobi" loading="lazy">
+                    <img src="assets/img/gallery/interior1.webp" alt="Serving area at Meatlovers Nairobi"
+                        loading="lazy">
                     <div class="gallery-overlay">
-                        <h3>Serving Area</h3>
-                        <p>Craft beers and fine wines</p>
+                        <h3>Serving Station</h3>
+                        <p>Open kitchen energy & fresh aromas</p>
                     </div>
                 </div>
 
                 <!-- Events Category -->
-                <div class="gallery-category-header">
+                <div class="gallery-category-header" data-category-header="events">
                     <h2 class="gallery-category-title">Latest Events</h2>
                 </div>
                 <div class="gallery-item" data-category="events">
@@ -519,16 +742,16 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Birthday Celebration</h3>
-                        <p>Making memories</p>
+                        <p>Unforgettable joy & delicious feasts</p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="events">
-                    <img src="assets/img/gallery/event-2.jpg" alt="Corporate dinner at Meatlovers Restaurant"
+                    <img src="assets/img/gallery/event-2.jpg" alt="Valentine's dinner at Meatlovers Restaurant"
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Valentines Event 2026</h3>
-                        <p>Romantic evenings</p>
+                        <p>Romantic evenings with special menus</p>
                     </div>
                 </div>
 
@@ -537,43 +760,16 @@
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h3>Anniversary Dinner</h3>
-                        <p>Romantic evenings</p>
+                        <p>Celebrating love & togetherness</p>
                     </div>
                 </div>
-
-                <!-- Chefs Category 
-                <div class="gallery-item" data-category="chefs">
-                    <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Chef David Omondi preparing meat at Meatlovers" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Chef David</h3>
-                        <p>Founder & Head Chef</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="chefs">
-                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Chef Sarah Wanjiku plating a dish at Meatlovers" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Chef Sarah</h3>
-                        <p>Executive Chef</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="chefs">
-                    <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Chef James Mwangi grilling at Meatlovers" loading="lazy">
-                    <div class="gallery-overlay">
-                        <h3>Chef James</h3>
-                        <p>Grill Master</p>
-                    </div>
-                </div> -->
             </div>
 
             <!-- Instagram Feed Mockup -->
             <div class="instagram-feed">
-                <h3 style="margin-bottom: 1rem;">Follow Us on Instagram</h3>
-                <p style="color: var(--gray); margin-bottom: 2rem;">@meatloversnairobi</p>
+                <h3 style="margin-bottom: 0.5rem;">@meatloversnairobi</h3>
+                <p style="color: var(--gray); margin-bottom: 2rem;">Follow our visual diary for daily bites & behind the
+                    scenes</p>
 
                 <div class="instagram-grid">
                     <div class="instagram-item">
@@ -591,16 +787,15 @@
                 </div>
 
                 <a href="https://www.instagram.com/meatloversltd?igsh=NThjbXU0czZ2MnRhMQ==" target="_blank"
-                    ref="noopener noreferrer" class="btn" style="margin-top: 2rem;">Follow @meatloversnairobi</a>
+                    rel="noopener noreferrer" class="btn" style="margin-top: 1rem;">Follow @meatloversnairobi</a>
             </div>
 
-            <!-- Call to Action -->
-            <div style="text-align: center; margin: 4rem 0;">
-                <h2 style="margin-bottom: 1rem;">Ready to Experience Meatlovers?</h2>
-                <p
-                    style="color: var(--gray); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Come see us in person and create your own memories. Book a table today!</p>
-                <a href="contact" class="btn">Book a Table</a>
+            <!-- Call to Action - Elegant CTA -->
+            <div class="gallery-cta">
+                <h2>Ready to create your own story?</h2>
+                <p>Come savor the atmosphere, flavors, and warmth of Meatlovers. Book your table today.</p>
+                <a href="contact" class="btn btn-outline"
+                    style="background: transparent; border-color: white; color: white;">Book a table</a>
             </div>
 
         </div>
@@ -625,14 +820,14 @@
                     <h3>Meatlovers</h3>
                     <p>Nairobi's premier destination for exceptional grilled meats.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" ref="noopener noreferrer"
+                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" rel="noopener noreferrer"
                             aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
                         <a href="https://www.instagram.com/meatloversltd?igsh=NThjbXU0czZ2MnRhMQ==" target="_blank"
-                            ref="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
+                            rel="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
                                 alt="Instagram"></a>
-                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener norefferer"
+                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener noreferrer"
                             aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
-                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" ref="noopener noreferrer"
+                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" rel="noopener noreferrer"
                             aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok"></a>
                     </div>
                 </div>
@@ -670,12 +865,36 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        // Gallery Filter Functionality
+        // Enhanced Gallery: Filter + Hide category titles when single category selected
         document.addEventListener('DOMContentLoaded', function () {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
-            const galleryCategory = document.querySelectorAll('.gallery-category-header');
+            const categoryHeaders = document.querySelectorAll('.gallery-category-header');
 
+            // Function to update visibility of category headers based on filter
+            function updateCategoryHeadersVisibility(filterValue) {
+                if (filterValue === 'all') {
+                    // Show all category headers
+                    categoryHeaders.forEach(header => {
+                        header.style.display = 'block';
+                    });
+                } else {
+                    // Hide all category headers first
+                    categoryHeaders.forEach(header => {
+                        header.style.display = 'none';
+                    });
+
+                    // Optional: If you want to show the header for the active category only (uncomment below)
+                    categoryHeaders.forEach(header => {
+                        const headerCategory = header.getAttribute('data-category-header');
+                        if (headerCategory === filterValue) {
+                            header.style.display = 'block';
+                        }
+                    });
+                }
+            }
+
+            // Filter Logic
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     // Update active button
@@ -684,18 +903,25 @@
 
                     const filterValue = button.getAttribute('data-filter');
 
-                    // Filter items
+                    // Filter gallery items
                     galleryItems.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (filterValue === 'all' || itemCategory === filterValue) {
                             item.style.display = 'block';
                         } else {
                             item.style.display = 'none';
                         }
                     });
+
+                    // Update category headers visibility
+                    updateCategoryHeadersVisibility(filterValue);
                 });
             });
 
-            // Lightbox Functionality
+            // Initialize: show all headers
+            updateCategoryHeadersVisibility('all');
+
+            // Lightbox Enhanced
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             const lightboxCaption = document.getElementById('lightboxCaption');
@@ -704,69 +930,111 @@
             const lightboxNext = document.getElementById('lightboxNext');
 
             let currentImageIndex = 0;
-            const galleryImages = [];
+            let galleryImages = [];
 
-            // Collect all gallery images
-            document.querySelectorAll('.gallery-item').forEach((item, index) => {
-                const img = item.querySelector('img');
-                const title = item.querySelector('.gallery-overlay h3')?.textContent || '';
-                const desc = item.querySelector('.gallery-overlay p')?.textContent || '';
-
-                galleryImages.push({
-                    src: img.src,
-                    alt: img.alt,
-                    caption: `${title} - ${desc}`
+            function rebuildGalleryArray() {
+                galleryImages = [];
+                document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+                    if (item.style.display !== 'none') {
+                        const img = item.querySelector('img');
+                        const titleEl = item.querySelector('.gallery-overlay h3');
+                        const descEl = item.querySelector('.gallery-overlay p');
+                        const title = titleEl ? titleEl.textContent : 'Meatlovers moment';
+                        const desc = descEl ? descEl.textContent : '';
+                        galleryImages.push({
+                            src: img.src,
+                            alt: img.alt,
+                            caption: `${title} — ${desc}`,
+                            elementIdx: idx
+                        });
+                    }
                 });
-
-                item.addEventListener('click', () => {
-                    currentImageIndex = index;
-                    updateLightbox();
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            function updateLightbox() {
-                const image = galleryImages[currentImageIndex];
-                lightboxImg.src = image.src;
-                lightboxImg.alt = image.alt;
-                lightboxCaption.textContent = image.caption;
             }
 
+            function updateLightbox() {
+                if (galleryImages.length === 0) return;
+                const imgData = galleryImages[currentImageIndex];
+                lightboxImg.src = imgData.src;
+                lightboxImg.alt = imgData.alt;
+                lightboxCaption.textContent = imgData.caption;
+            }
+
+            function openLightboxFromItem(index) {
+                rebuildGalleryArray();
+                if (galleryImages.length === 0) return;
+                const targetItem = document.querySelectorAll('.gallery-item')[index];
+                if (!targetItem) return;
+                const targetSrc = targetItem.querySelector('img').src;
+                const foundIdx = galleryImages.findIndex(img => img.src === targetSrc);
+                if (foundIdx !== -1) {
+                    currentImageIndex = foundIdx;
+                } else {
+                    currentImageIndex = 0;
+                }
+                updateLightbox();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Attach click events to each gallery item
+            function attachItemClicks() {
+                const items = document.querySelectorAll('.gallery-item');
+                items.forEach((item, idx) => {
+                    item.removeEventListener('click', item.clickHandler);
+                    const handler = () => openLightboxFromItem(idx);
+                    item.clickHandler = handler;
+                    item.addEventListener('click', handler);
+                });
+            }
+
+            attachItemClicks();
+
+            // Observer for filter changes to reattach and rebuild
+            const observer = new MutationObserver(() => {
+                attachItemClicks();
+                rebuildGalleryArray();
+            });
+            observer.observe(document.getElementById('galleryGrid'), { childList: true, subtree: true, attributes: true });
+
+            // Lightbox controls
             lightboxClose.addEventListener('click', () => {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
             });
 
             lightboxPrev.addEventListener('click', () => {
+                if (galleryImages.length === 0) return;
                 currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
                 updateLightbox();
             });
 
             lightboxNext.addEventListener('click', () => {
+                if (galleryImages.length === 0) return;
                 currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
                 updateLightbox();
             });
 
-            // Close lightbox with Escape key
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = '';
-                } else if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
-                    lightboxPrev.click();
-                } else if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
-                    lightboxNext.click();
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        lightbox.classList.remove('active');
+                        document.body.style.overflow = '';
+                    } else if (e.key === 'ArrowLeft') {
+                        lightboxPrev.click();
+                    } else if (e.key === 'ArrowRight') {
+                        lightboxNext.click();
+                    }
                 }
             });
 
-            // Close lightbox when clicking outside the image
             lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox) {
                     lightbox.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
+
+            rebuildGalleryArray();
         });
     </script>
 
@@ -778,11 +1046,6 @@
     "name": "Meatlovers Restaurant Gallery",
     "description": "Photos of dishes, interior, and events at Meatlovers Restaurant in Nairobi",
     "url": "https://meatlovers.co.ke/gallery",
-    "image": [
-      "https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-    ],
     "author": {
       "@type": "Restaurant",
       "name": "Meatlovers Restaurant"

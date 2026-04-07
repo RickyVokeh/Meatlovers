@@ -6,30 +6,27 @@
 }
 
 :root {
-    /* Color Palette - Modern meat-centric colors */
-    --primary: #b22222;
-    /* Rich red - meat, passion */
-    --primary-dark: #8b1a1a;
-    /* Deeper red for hover states */
+    /* Color Palette - Meat Lovers Restaurant Branding */
+    --primary: #e67e22;
+    /* Orange - main brand color from logo */
+    --primary-dark: #d35400;
+    /* Darker orange for hover states */
     --secondary: #2c1810;
     /* Dark brown - grilled, rustic */
-    --accent: #d4a373;
-    /* Warm tan - comfort, warmth */
-    --light: #f8f5f0;
-    /* Creamy off-white */
+    --accent: #f39c12;
+    /* Golden yellow - accent/warmth */
+    --light: #fdfaf6;
+    /* Creamy warm off-white */
     --dark: #1a1a1a;
     /* Almost black for text */
     --gray: #666666;
     /* Secondary text */
-    --light-gray: #e8e0d5;
-    /* Borders, backgrounds */
+    --light-gray: #f0e6d8;
+    /* Warm light gray for borders/backgrounds */
 
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
-    /*
-    --font-heading: 'Ferro Rosso', 'Playfair Display', serif;
-    --font-body: 'Ferro Rosso', 'Poppins', sans-serif; */
 
     /* Spacing */
     --container-width: 1200px;
@@ -49,13 +46,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-/*
-.hero h1 {
-    font-family: 'Ferro Rosso', 'Playfair Display', serif !important;
-   
-}
-*/
 
 /* ===== TYPOGRAPHY ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
@@ -129,14 +119,15 @@ h3 {
 }
 
 .btn:hover {
-    background: rgb(245, 152, 14);
-    color: var(--primary);
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--dark);
 }
 
 .btn-outline {
-    background: rgb(245, 152, 14);
-    border: 2px solid rgb(245, 152, 14);
-    color: white;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
 }
 
 .btn-outline:hover {
@@ -160,20 +151,6 @@ header {
     height: 80px;
 }
 
-/*
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: rgb(241, 146, 20);
-    text-decoration: none;
-    letter-spacing: -0.5px;
-}
-
-.logo span {
-    color: var(--primary);
-}
-*/
 /* Logo container */
 .logo {
     display: flex;
@@ -193,7 +170,7 @@ header {
     font-family: 'Ferro Rosso', 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: rgb(241, 146, 20);
+    color: var(--primary);
     line-height: 1.2;
     letter-spacing: -0.5px;
     white-space: nowrap;
@@ -316,7 +293,6 @@ header {
         height: 60vh;
         min-height: 500px;
         background-attachment: scroll;
-        /* Removed fixed on mobile for better performance */
     }
 
     .hero h1 {
@@ -356,14 +332,11 @@ header {
     background: white;
     border-radius: 8px;
     overflow: visible;
-    /* Changed from hidden to visible */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     position: relative;
     margin-top: 50px;
-    /* Space for the circular image */
     padding-top: 50px;
-    /* Additional space for image */
 }
 
 .featured-card:hover {
@@ -398,7 +371,6 @@ header {
 
 .featured-content {
     padding: 80px 0.5rem 1.5rem;
-    /* Increased top padding */
     text-align: center;
 }
 
@@ -453,7 +425,7 @@ header {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--primary);
     display: block;
 }
 
@@ -472,8 +444,8 @@ header {
 
 .happy-mini-badge {
     display: inline-block;
-    background: var(--accent);
-    color: var(--dark);
+    background: var(--primary);
+    color: white;
     padding: 0.5rem 2rem;
     border-radius: 30px;
     font-weight: 600;
@@ -481,7 +453,7 @@ header {
 }
 
 .happy-hours-minimal h2 {
-    color: rgb(252, 177, 15);
+    color: var(--primary);
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
@@ -497,76 +469,14 @@ header {
 }
 
 .happy-mini-tag span {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--light-gray);
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    color: var(--primary-dark);
+    font-weight: 500;
 }
 
-
-/* ===== TESTIMONIALS ===== 
-.testimonials {
-    background: var(--light-gray);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.testimonial-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    position: relative;
-}
-
-.testimonial-card::before {
-    content: '"';
-    font-size: 4rem;
-    color: var(--primary);
-    opacity: 0.2;
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    font-family: var(--font-heading);
-}
-
-.testimonial-text {
-    margin-bottom: 1.5rem;
-    font-style: italic;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.author-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.author-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.author-info h4 {
-    margin-bottom: 0.2rem;
-    font-size: 1.1rem;
-}
-
-.author-info p {
-    color: var(--gray);
-    font-size: 0.9rem;
-} */
 /* ===== DELIVERY PARTNERS SECTION ===== */
 .delivery-partners {
     background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
@@ -606,7 +516,7 @@ header {
 
 .delivery-tag {
     display: inline-block;
-    background: rgb(250, 149, 17);
+    background: var(--primary);
     color: white;
     padding: 0.5rem 1.5rem;
     border-radius: 30px;
@@ -707,7 +617,7 @@ header {
 .delivery-note p {
     display: inline-block;
     background: var(--secondary);
-    color: var(--accent);
+    color: var(--primary);
     padding: 0.8rem 2rem;
     border-radius: 50px;
     font-size: 1rem;
@@ -715,10 +625,9 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-
 /* ===== FOOTER ===== */
 footer {
-    background: rgb(20, 20, 20);
+    background: #1a1a1a;
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -731,7 +640,7 @@ footer {
 }
 
 .footer-col h3 {
-    color: rgb(241, 146, 20);
+    color: var(--primary);
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
 }
@@ -745,13 +654,13 @@ footer {
 }
 
 .footer-col a {
-    color: whitesmoke;
+    color: #cccccc;
     text-decoration: none;
     transition: var(--transition);
 }
 
 .footer-col a:hover {
-    color: var(--accent);
+    color: var(--primary);
     padding-left: 5px;
 }
 
@@ -759,7 +668,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: whitesmoke;
+    color: #cccccc;
 }
 
 .social-links {
@@ -774,13 +683,13 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgb(51, 82, 185);
+    background: var(--primary);
     border-radius: 50%;
     transition: var(--transition);
 }
 
 .social-links a:hover {
-    background: var(--primary);
+    background: var(--accent);
     transform: translateY(-3px);
 }
 
@@ -794,7 +703,7 @@ footer {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.986);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
 
@@ -1023,33 +932,6 @@ footer {
 
     .happy-hours-minimal p {
         font-size: 1rem;
-    }
-
-    /* Testimonials */
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .testimonial-card {
-        padding: 1.8rem 1.5rem;
-    }
-
-    .testimonial-text {
-        font-size: 0.95rem;
-    }
-
-    .author-img {
-        width: 45px;
-        height: 45px;
-    }
-
-    .author-info h4 {
-        font-size: 1rem;
-    }
-
-    .author-info p {
-        font-size: 0.85rem;
     }
 
     .delivery-grid {
@@ -1325,41 +1207,6 @@ footer {
         display: none;
     }
 
-    /* Testimonials */
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        max-width: 350px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .testimonial-card {
-        padding: 1.8rem 1.2rem;
-    }
-
-    .testimonial-text {
-        font-size: 0.95rem;
-        margin-bottom: 1.2rem;
-    }
-
-    .testimonial-author {
-        gap: 0.8rem;
-    }
-
-    .author-img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .author-info h4 {
-        font-size: 1rem;
-    }
-
-    .author-info p {
-        font-size: 0.8rem;
-    }
-
     /* Footer - Single Column */
     .footer-grid {
         grid-template-columns: 1fr !important;
@@ -1464,10 +1311,6 @@ footer {
         padding: 60px 0.8rem 1rem;
     }
 
-    .testimonial-grid {
-        max-width: 280px;
-    }
-
     .footer-grid {
         gap: 1.5rem;
     }
@@ -1510,19 +1353,11 @@ footer {
     .featured-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 /* Tablet Landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
     .featured-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .testimonial-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 

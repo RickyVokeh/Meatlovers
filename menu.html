@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- Primary Meta Tags -->
     <title>Our Menu | Meatlovers Nairobi - Grilled Meats & Kenyan Cuisine</title>
@@ -26,7 +26,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <link rel="manifest" href="manifest.json">
 
     <!-- CSS -->
@@ -35,86 +34,342 @@
     <script src="assets/js/url-router.js" defer></script>
 
     <style>
-        /* Menu-specific styles */
-        .menu-category {
-            margin-bottom: 3rem;
-        }
+        /* ===== MODERN MENU STYLES ===== */
 
-        .menu-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .menu-item {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Hero Section - Cinematic */
+        .menu-hero {
+            height: 45vh;
+            min-height: 380px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 100%),
+                url('assets/img/hero/burger.webp');
+            background-size: cover;
+            background-position: center 35%;
             display: flex;
-        }
-
-        .menu-item-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .menu-item-content {
-            padding: 1rem;
-            flex: 1;
-        }
-
-        .menu-item-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .menu-hero .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .menu-item-name {
-            font-family: var(--font-heading);
+        .menu-hero .hero-content p {
             font-size: 1.2rem;
-            color: rgb(245, 152, 14);
+            opacity: 0.9;
+            letter-spacing: 0.3px;
         }
 
-        .menu-item-price {
-            font-weight: 600;
+        /* Menu Note - Elegant Banner */
+        .menu-note-modern {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            margin: -30px auto 3rem auto;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-note-modern p {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .menu-note-modern strong {
             color: var(--primary);
         }
 
-        .menu-item-desc {
-            color: var(--dark);
+        /* Category Header with Accent */
+        .menu-category-modern {
+            margin-bottom: 3.5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .category-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(230, 126, 34, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-sub {
+            color: var(--gray);
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            margin-top: 0.25rem;
         }
 
-        .menu-tag {
-            display: inline-block;
-            background: var(--light-gray);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        /* Modern Menu Grid */
+        .menu-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+        }
+
+        /* Menu Card - Glassmorphism Style */
+        .menu-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.18);
+            border-color: rgba(230, 126, 34, 0.2);
+        }
+
+        /* Image Container with overlay */
+        .menu-card-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            flex-shrink: 0;
+        }
+
+        .menu-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-card-img {
+            transform: scale(1.05);
+        }
+
+        .menu-tag-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card Content */
+        .menu-card-content {
+            padding: 1.3rem 1.3rem 1.5rem;
+            flex: 1;
+        }
+
+        .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .menu-card-name {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--dark);
+            letter-spacing: -0.2px;
+            margin: 0;
         }
 
-        .menu-note {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            text-align: center;
-            border-left: 4px solid rgb(245, 152, 14);
+        .menu-card-price {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary);
+            background: rgba(230, 126, 34, 0.08);
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            line-height: 1;
         }
 
-        /* ===== PDF MENU SECTION ===== */
+        .menu-card-desc {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .menu-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .menu-category-tag {
+            background: var(--light-gray);
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .order-hint {
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .menu-card:hover .order-hint {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-hero {
+                height: 35vh;
+                min-height: 300px;
+            }
+
+            .menu-hero .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .menu-note-modern {
+                margin: -20px 1rem 2rem 1rem;
+                padding: 1rem 1.2rem;
+            }
+
+            .category-title {
+                font-size: 1.6rem;
+            }
+
+            .category-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
+            }
+
+            .menu-grid-modern {
+                grid-template-columns: 1fr;
+                gap: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-card-img-wrapper {
+                height: 170px;
+            }
+
+            .menu-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-card-price {
+                align-self: flex-start;
+            }
+
+            .category-header {
+                gap: 0.8rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes cardFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-card {
+            animation: cardFade 0.5s ease backwards;
+        }
+
+        .menu-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .menu-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .menu-card:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .menu-card:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .menu-card:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .menu-card:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        /* PDF Section - Preserved Original Styles */
         .pdf-menu-section {
             background: linear-gradient(135deg, #fff5eb 0%, #fff 100%);
             position: relative;
             overflow: hidden;
+            border-radius: 24px;
+            margin: 2rem 0 1rem;
         }
 
-        /* Decorative background elements */
         .pdf-menu-section::before {
             content: '📄';
             position: absolute;
@@ -195,7 +450,7 @@
         .pdf-view-btn {
             background: white;
             color: var(--primary);
-            border: 2px solid;
+            border: 2px solid var(--primary);
         }
 
         .pdf-view-btn:hover {
@@ -206,7 +461,7 @@
         .pdf-download-btn {
             background: rgb(247, 165, 12);
             color: white;
-            border: 2px solid;
+            border: 2px solid rgb(247, 165, 12);
         }
 
         .pdf-download-btn:hover {
@@ -255,7 +510,6 @@
             font-style: italic;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             .pdf-menu-wrapper {
                 padding: 2rem 1.5rem;
@@ -321,28 +575,24 @@
             }
         }
 
-        /* Small Mobile */
         @media (max-width: 360px) {
             .pdf-menu-features {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 768px) {
-            .menu-item {
-                flex-direction: column;
-            }
-
-            .menu-item-img {
-                width: 100%;
-                height: 200px;
-            }
+        /* Newsletter fix */
+        .footer-col input[type="email"] {
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <!-- Same header-->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-wrapper">
@@ -371,413 +621,423 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="hero"
-        style="height: 40vh; min-height: 300px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/img/hero/burger.webp');">
+    <!-- Hero Section -->
+    <section class="menu-hero">
         <div class="hero-content">
             <h1>Our Menu</h1>
             <p>Crafted with passion, grilled to perfection</p>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section class="section">
+    <!-- Main Content -->
+    <section class="section" style="padding-top: 0.5rem;">
         <div class="container">
 
-            <!-- Menu Note -->
-            <div class="menu-note">
-                <p>All our meats are sourced from local Kenyan farms and grilled fresh to order.
-                    Prices include 16% VAT. Ask us about daily specials!</p>
+            <!-- Modern Note Banner -->
+            <div class="menu-note-modern">
+                <p>🔥 <strong>Farm-to-grill freshness</strong> — All meats sourced from local Kenyan farms. Prices
+                    include 16% VAT. Ask about our daily chef's specials!</p>
             </div>
 
-            <!-- Starters -->
-            <div class="menu-category">
-                <h2 class="section-title" style="margin-bottom: 2rem;">For Beef lovers</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/beef stir fry.webp" alt="Grilled beef skewers at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Beef stir Fry</h3>
-                                <span class="menu-item-price">KES 700</span>
+            <!-- Beef Lovers Category -->
+            <div class="menu-category-modern">
+                <div class="category-header">
+                    <div class="category-icon"></div>
+                    <div>
+                        <h2 class="category-title">For Beef Lovers</h2>
+                        <div class="category-sub">Premium cuts, grilled to your liking</div>
+                    </div>
+                </div>
+                <div class="menu-grid-modern">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/beef stir fry.webp" alt="Beef stir fry" class="menu-card-img"
+                                loading="lazy">
+                            <span class="menu-tag-badge">Popular</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Beef Stir Fry</h3>
+                                <span class="menu-card-price">KES 700</span>
                             </div>
-                            <p class="menu-item-desc">Assorted grilled meats served with traditional kachumbari, ugali,
+                            <p class="menu-card-desc">Assorted grilled meats served with traditional kachumbari, ugali,
                                 and sukuma wiki</p>
-                            <span class="menu-tag">Popular</span>
+                            <div class="menu-card-footer">
+                                <span class="menu-category-tag">Stir-fry</span>
+                                <span class="order-hint">🔥 Chef's pick</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/BEEF-WET-UGALI.webp" alt="Beef wet fry at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Beef wet fry</h3>
-                                <span class="menu-item-price">KES 650</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/BEEF-WET-UGALI.webp" alt="Beef wet fry" class="menu-card-img"
+                                loading="lazy">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Beef Wet Fry</h3>
+                                <span class="menu-card-price">KES 650</span>
                             </div>
-                            <p class="menu-item-desc">Cooked & fried with dark soy & tomato concasse
-                                sauce</p>
+                            <p class="menu-card-desc">Cooked & fried with dark soy & tomato concasse sauce</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-category-tag">Classic</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/Nyama-choma.webp" alt="Nyama choma at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Beef choma</h3>
-                                <span class="menu-item-price">KES 650</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/Nyama-choma.webp" alt="Beef choma" class="menu-card-img"
+                                loading="lazy">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Beef Choma</h3>
+                                <span class="menu-card-price">KES 650</span>
                             </div>
-                            <p class="menu-item-desc">Best beef for roasting, marinated with oil, lemon
-                                juice, light soy sauce, salt, garlic, ginger & black pepper</p>
+                            <p class="menu-card-desc">Best beef for roasting, marinated with oil, lemon juice, garlic,
+                                ginger & black pepper</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-category-tag">Nyama Choma</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!--<div class="menu-item">
-                        <img src="assets/img/dishes/platters.jpg" alt="Beef pilau at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Beef pilau</h3>
-                                <span class="menu-item-price">KES 600</span>
-                            </div>
-                            <p class="menu-item-desc">Prepared with pilau masala & a touch of dark soy
-                                sauce</p>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/ox-tail.webp" alt="Ox-tail" class="menu-card-img"
+                                loading="lazy">
                         </div>
-                    </div> -->
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/ox-tail.webp" alt="Ox-tail at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Ox-tail</h3>
-                                <span class="menu-item-price">KES 600</span>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Ox-tail</h3>
+                                <span class="menu-card-price">KES 600</span>
                             </div>
-                            <p class="menu-item-desc">Oxtail cooked in oxtail stock, bouquetgani, onions,
-                                leeks, black pepper corn, seasoned with salt </p>
+                            <p class="menu-card-desc">Oxtail cooked in oxtail stock, bouquet garni, onions, leeks, black
+                                pepper corn</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-category-tag">Slow-cooked</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/minced-meat.webp" alt="Minced Meat spaghetti at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Minced Meat spaghetti</h3>
-                                <span class="menu-item-price">KES 500</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/minced-meat.webp" alt="Minced Meat spaghetti"
+                                class="menu-card-img" loading="lazy">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Minced Meat Spaghetti</h3>
+                                <span class="menu-card-price">KES 500</span>
                             </div>
-                            <p class="menu-item-desc">Marinated in garlic & ginger paste, lemon, salt,
-                                paprika, pepper, thyme & rosemary served with
-                                BBq sauce</p>
+                            <p class="menu-card-desc">Marinated in garlic & ginger, lemon, paprika, rosemary served with
+                                BBQ sauce</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-category-tag">Pasta</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Mbuzi section -->
-            <div class="menu-category">
-                <h2 class="section-title" style="margin-bottom: 2rem;">For Mbuzi lovers</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/mbuzi-wet-fry.webp" alt="Mbuzi wet fry at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Mbuzi wet fry</h3>
-                                <span class="menu-item-price">KES 650</span>
+            <!-- Mbuzi Lovers Category -->
+            <div class="menu-category-modern">
+                <div class="category-header">
+                    <div class="category-icon"></div>
+                    <div>
+                        <h2 class="category-title">For Mbuzi Lovers</h2>
+                        <div class="category-sub">Tender goat meat, rich in flavor</div>
+                    </div>
+                </div>
+                <div class="menu-grid-modern">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/mbuzi-wet-fry.webp" alt="Mbuzi wet fry" class="menu-card-img"
+                                loading="lazy">
+                            <span class="menu-tag-badge">Chef's Special</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Mbuzi Wet Fry</h3>
+                                <span class="menu-card-price">KES 650</span>
                             </div>
-                            <p class="menu-item-desc">Finely sliced mbuzi pieces tossed in onions, green
-                                pepper, tomatoes, carrots, dhania, concasse sauce </p>
-                            <span class="menu-tag">Chef's Special</span>
+                            <p class="menu-card-desc">Sliced mbuzi pieces tossed in onions, green pepper, tomatoes,
+                                carrots, concasse sauce</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Wet Fry</span></div>
                         </div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/mbuzi-dry-fry.webp" alt="Mbuzi dry fry at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Mbuzi dry fry</h3>
-                                <span class="menu-item-price">KES 650</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/mbuzi-dry-fry.webp" alt="Mbuzi dry fry" class="menu-card-img"
+                                loading="lazy">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Mbuzi Dry Fry</h3>
+                                <span class="menu-card-price">KES 650</span>
                             </div>
-                            <p class="menu-item-desc">Finely cut mbuzi pieces tossed in onions, black
-                                pepper, carrots, a touch of dhania, dark soy sauce,
-                                salt and pepper </p>
-                            <span class="menu-tag">Traditional Feast</span>
+                            <p class="menu-card-desc">Mbuzi pieces tossed in onions, black pepper, carrots, dark soy
+                                sauce</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Dry Fry</span></div>
                         </div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/mbuzi-meatballs.webp" alt="Mbuzi meatballs at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Mbuzi Meatballs</h3>
-                                <span class="menu-item-price">KES 700</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/mbuzi-meatballs.webp" alt="Mbuzi meatballs"
+                                class="menu-card-img" loading="lazy">
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Mbuzi Meatballs</h3>
+                                <span class="menu-card-price">KES 700</span>
                             </div>
-                            <p class="menu-item-desc">Mbuzi mince perfectly baked and moistened in spicy
-                                tomato concasse sauce </p>
+                            <p class="menu-card-desc">Mbuzi mince perfectly baked and moistened in spicy tomato concasse
+                                sauce</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Meatballs</span></div>
                         </div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/Lamb-chops.webp" alt="Grilled lamb chops at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Lamb Chops</h3>
-                                <span class="menu-item-price">KES 800</span>
-                            </div>
-                            <p class="menu-item-desc">Grilled lamb chops, marinated in fresh garlic, salt,
-                                cayenne, rosemary & thyme, served with minted
-                                gravy sauce</p>
+                    <!--<div class="menu-card">
+                        <div class="menu-card-img-wrapper">
+                            <img src="assets/img/dishes/Lamb-chops.webp" alt="Lamb chops" class="menu-card-img"
+                                loading="lazy">
                         </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/chicken-masala.webp" alt="Grilled chicken at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Chicken Masala</h3>
-                                <span class="menu-item-price">KES 500</span>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Lamb Chops</h3>
+                                <span class="menu-card-price">KES 800</span>
                             </div>
-                            <p class="menu-item-desc">Chicken stew finished with dhana jeera, gharam masala
-                                and a touch of cayenne pepper </p>
-                        </div>
-                    </div>
-                    <!--
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/TAM BUGHER.jpg" alt="Meatlovers signature burger"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Meatlovers Burger</h3>
-                                <span class="menu-item-price">KES 1,500</span>
-                            </div>
-                            <p class="menu-item-desc">Double beef patty, bacon, cheese, caramelized onions, lettuce,
-                                tomato, and special sauce</p>
-                            <span class="menu-tag">Best Seller</span>
+                            <p class="menu-card-desc">Grilled lamb chops marinated in fresh garlic, rosemary & thyme,
+                                served with minted gravy</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Premium</span></div>
                         </div>
                     </div> -->
                 </div>
             </div>
 
-            <!-- Chicken -->
-            <div class="menu-category">
-                <h2 class="section-title" style="margin-bottom: 2rem;">For Chicken lovers</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/chicken-masala.webp" alt="Chickem Masala" class="menu-item-img"
-                            loading="lazy">
-                        <div class="menu-item-content" style="width: 100%;">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Chicken Masala</h3>
-                                <span class="menu-item-price">KES 650</span>
-                            </div>
-                            <p class="menu-item-desc">Chicken stew finished with dhana jeera, garam masla & a touch of
-                                cayenne pepper</p>
-                        </div>
+            <!-- Chicken Lovers -->
+            <div class="menu-category-modern">
+                <div class="category-header">
+                    <div class="category-icon"></div>
+                    <div>
+                        <h2 class="category-title">For Chicken Lovers</h2>
+                        <div class="category-sub">Juicy, tender, and full of flavor</div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/chicken biryani.webp" alt="Chicken Biryani" class="menu-item-img"
-                            loading="lazy">
-                        <div class="menu-item-content" style="width: 100%;">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Chicken Biryani</h3>
-                                <span class="menu-item-price">KES 750</span>
-                            </div>
-                            <p class="menu-item-desc">Chicken cooked in natural yoghurt, lemon juice,
-                                crashed cloves, ginger, tumeric, & chicken biryani
-                                ingredients, served with rice</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/Wet-fry-kienyeji.webp" alt="Chicken Wet-fry-kienyeji"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content" style="width: 100%;">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Wet Fry kienyeji</h3>
-                                <span class="menu-item-price">KES 700</span>
-                            </div>
-                            <p class="menu-item-desc">Tossed in onions, bell pepper, little dark soy sauce finished with
-                                little concassee</p>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-
-            <!-- Platters -->
-            <div class="menu-category">
-                <h2 class="section-title" style="margin-bottom: 2rem;">Meatlovers platters</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/gold-mega-platter.webp" alt="Grilled chicken at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content" style="width: 100%;">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Gold mega platter</h3>
-                                <span class="menu-item-price">KES 10,000</span>
+                <div class="menu-grid-modern">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/chicken-masala.webp"
+                                alt="Chicken Masala" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Chicken Masala</h3><span class="menu-card-price">KES
+                                    650</span>
                             </div>
-                            <p class="menu-item-desc">All meat assorted Mbuzi Choma, Chicken & Beef Choma/ Stir Fry.
-                                Pork spare ribs, sausages, plantain, assorted veges, Boiled Eggs,
-                                Grilled tomatoes, 5 accompaniments, pepper sauce & Kachumbari </p>
+                            <p class="menu-card-desc">Chicken stew finished with dhana jeera, garam masala & cayenne
+                                pepper</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Masala</span></div>
                         </div>
                     </div>
-
-
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/silver-platter.webp" alt="Silver mega platter at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content" style="width: 100%;">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Silver platter</h3>
-                                <span class="menu-item-price">KES 8,000</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/chicken biryani.webp"
+                                alt="Chicken Biryani" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Chicken Biryani</h3><span class="menu-card-price">KES
+                                    750</span>
                             </div>
-                            <p class="menu-item-desc">All meat assorted Mbuzi Choma, Chicken & Beef Choma/ Stir Fry.
-                                Pork spare ribs, sausages, plantain, assorted veges, boiled eggs,
-                                grilled tomatoes, 4 accompaniments, pepper sauce & Kachumbari.</p>
+                            <p class="menu-card-desc">Chicken cooked in yoghurt, lemon, ginger, turmeric & biryani
+                                spices served with rice</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Biryani</span></div>
                         </div>
                     </div>
-
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/platters.webp" alt="Large platter at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content" style="width: 100%;">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Large platter</h3>
-                                <span class="menu-item-price">KES 2,500</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/Wet-fry-kienyeji.webp"
+                                alt="Wet Fry Kienyeji" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Wet Fry Kienyeji</h3><span class="menu-card-price">KES
+                                    700</span>
                             </div>
-                            <p class="menu-item-desc">Inclusive of all meat, assorted beef, lamb, chicken, pork,
-                                sausage & potato wedges.</p>
+                            <p class="menu-card-desc">Tossed in onions, bell pepper, dark soy sauce finished with
+                                concasse</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Kienyeji</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Desserts -->
-            <div class="menu-category">
-                <h2 class="section-title" style="margin-bottom: 2rem;">Sides</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/tuna-paste-salad.jpg" alt="Tuna paste salad at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Tuna paste salad</h3>
-                                <span class="menu-item-price">KES 650</span>
+            <!-- Meatlovers Platters -->
+            <div class="menu-category-modern">
+                <div class="category-header">
+                    <div class="category-icon"></div>
+                    <div>
+                        <h2 class="category-title">Meatlovers Platters</h2>
+                        <div class="category-sub">Feast for the whole table</div>
+                    </div>
+                </div>
+                <div class="menu-grid-modern">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/gold-mega-platter.webp"
+                                alt="Gold Mega Platter" class="menu-card-img" loading="lazy"><span
+                                class="menu-tag-badge">Signature</span></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Gold Mega Platter</h3><span class="menu-card-price">KES
+                                    10,000</span>
                             </div>
-                            <p class="menu-item-desc">Tuna, Avocado, Capsicum, black olive</p>
+                            <p class="menu-card-desc">All meat assorted: Mbuzi Choma, Chicken, Beef Choma, Pork spare
+                                ribs, sausages, plantain, 5 accompaniments</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Feast for 6-8</span></div>
                         </div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/burger.webp" alt="Fruit platter at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Double cheese burger</h3>
-                                <span class="menu-item-price">KES 800</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/silver-platter.webp"
+                                alt="Silver Platter" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Silver Platter</h3><span class="menu-card-price">KES
+                                    8,000</span>
                             </div>
-                            <p class="menu-item-desc">Lettuce, Tomato slice, Onions, Beef Pate, Cheese,
-                                Calamarized onions, Beef Pate, Cheese, Calamarized onions</p>
+                            <p class="menu-card-desc">Mbuzi Choma, Chicken & Beef, Pork spare ribs, sausages, 4
+                                accompaniments & pepper sauce</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Feast for 4-6</span></div>
                         </div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/breakfast.webp" alt="Fruit platter at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Breakfast</h3>
-                                <span class="menu-item-price">KES 450</span>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/platters.webp"
+                                alt="Large Platter" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Large Platter</h3><span class="menu-card-price">KES
+                                    2,500</span>
                             </div>
-                            <p class="menu-item-desc">Mixed tea / Coffee, Gizzards/ Liver,
-                                Toast Bread , Fried Eggs</p>
+                            <p class="menu-card-desc">Assorted beef, lamb, chicken, pork, sausage & potato wedges.</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">For 2-3</span></div>
                         </div>
                     </div>
-
-                    <div class="menu-item">
-                        <img src="assets/img/dishes/pina-beet-salad.jpg" alt="Fruit platter at Meatlovers Nairobi"
-                            class="menu-item-img" loading="lazy">
-                        <div class="menu-item-content">
-                            <div class="menu-item-header">
-                                <h3 class="menu-item-name">Pina beet salad</h3>
-                                <span class="menu-item-price">KES 450</span>
-                            </div>
-                            <p class="menu-item-desc">Carrots, Beet root, pineapple salad.</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
+            <!-- Sides & More -->
+            <div class="menu-category-modern">
+                <div class="category-header">
+                    <div class="category-icon"></div>
+                    <div>
+                        <h2 class="category-title">Sides & More</h2>
+                        <div class="category-sub">Perfect complements</div>
+                    </div>
+                </div>
+                <div class="menu-grid-modern">
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/tuna-paste-salad.jpg"
+                                alt="Tuna paste salad" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Tuna Paste Salad</h3><span class="menu-card-price">KES
+                                    650</span>
+                            </div>
+                            <p class="menu-card-desc">Tuna, Avocado, Capsicum, black olive</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Fresh</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/burger.webp"
+                                alt="Double cheese burger" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Double Cheese Burger</h3><span class="menu-card-price">KES
+                                    800</span>
+                            </div>
+                            <p class="menu-card-desc">Lettuce, Tomato, Onions, Beef Patty, Caramelized onions, double
+                                cheese</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Burger</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/breakfast.webp" alt="Breakfast"
+                                class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Breakfast</h3><span class="menu-card-price">KES 450</span>
+                            </div>
+                            <p class="menu-card-desc">Mixed tea / Coffee, Gizzards/Liver, Toast Bread, Fried Eggs</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Morning</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrapper"><img src="assets/img/dishes/pina-beet-salad.jpg"
+                                alt="Pina beet salad" class="menu-card-img" loading="lazy"></div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3 class="menu-card-name">Pina Beet Salad</h3><span class="menu-card-price">KES
+                                    450</span>
+                            </div>
+                            <p class="menu-card-desc">Carrots, Beet root, pineapple salad</p>
+                            <div class="menu-card-footer"><span class="menu-category-tag">Vibrant</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Menu Section - Preserved Original -->
+            <section class="pdf-menu-section">
+                <div class="container">
+                    <div class="pdf-menu-wrapper">
+                        <h2 class="pdf-menu-title">Explore the complete Meatlovers menu</h2>
+                        <p class="pdf-menu-description">Download our full menu with prices, descriptions, and daily
+                            specials. Perfect for offline viewing or sharing with friends.</p>
+
+                        <div class="pdf-menu-buttons">
+                            <a href="assets/img/dishes/menu_new.pdf" class="btn pdf-btn pdf-view-btn" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                View menu
+                            </a>
+                            <a href="assets/img/dishes/menu_new.pdf" class="btn pdf-btn pdf-download-btn"
+                                download="Meatlovers-Menu.pdf">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Download menu
+                            </a>
+                        </div>
+
+                        <p class="pdf-menu-update">Last updated: March 2026</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </section>
 
-    <!-- PDF Menu Section -->
-    <section class="section pdf-menu-section">
-        <div class="container">
-            <div class="pdf-menu-wrapper">
-                <h2 class="pdf-menu-title">Explore the complete Meatlovers menu</h2>
-                <p class="pdf-menu-description">Download our full menu with prices, descriptions, and daily specials.
-                    Perfect for offline viewing or sharing with friends.</p>
-
-                <div class="pdf-menu-buttons">
-                    <a href="assets/img/dishes/menu_new.pdf" class="btn pdf-btn pdf-view-btn" target="_blank"
-                        rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        View menu
-                    </a>
-                    <a href="assets/img/dishes/menu_new.pdf" class="btn pdf-btn pdf-download-btn"
-                        download="Meatlovers-Menu.pdf">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download menu
-                    </a>
-                </div>
-
-                <p class="pdf-menu-update">Last updated: March 2026</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!--  footer  -->
+    <!-- Footer -->
     <footer>
-
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Meatlovers</h3>
                     <p>Nairobi's premier destination for exceptional grilled meats.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/meatloversltd?igsh=NThjbXU0czZ2MnRhMQ==" target="_blank"
-                            ref="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
-                                alt="Instagram"></a>
-                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener norefferer"
+                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/meatloversltd" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"><img src="assets/img/icons/instagram.svg" alt="Instagram"></a>
+                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener noreferrer"
                             aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
-                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" ref="noopener noreferrer"
+                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" rel="noopener noreferrer"
                             aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok"></a>
                     </div>
                 </div>
-
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
@@ -788,7 +1048,6 @@
                         <li><a href="contact">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul class="contact-info">
@@ -800,15 +1059,12 @@
                 </div>
                 <div class="footer-col">
                     <h3>Newsletter</h3>
-                    <p>Subscribe for special offers and events</p>
-                    <form style="margin-top: 1rem;">
-                        <input type="email" placeholder="Your email"
-                            style="padding: 0.5rem; width: 100%; margin-bottom: 0.5rem;">
-                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
-                    </form>
+                    <p>Subscribe for special offers</p>
+                    <form style="margin-top: 1rem;"><input type="email" placeholder="Your email"
+                            style="padding: 0.6rem; border-radius: 8px; border: 1px solid #ddd; width: 100%; margin-bottom: 0.5rem;"><button
+                            type="submit" class="btn" style="width: 100%;">Subscribe</button></form>
                 </div>
             </div>
-
             <div class="copyright">
                 <p>&copy; <span class="current-year">2026</span> Meatlovers Restaurant || All rights reserved.</p>
             </div>
