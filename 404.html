@@ -1,36 +1,292 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <script>
-        // Get the current path
-        const path = window.location.pathname;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-        // Remove leading slash
-        const cleanPath = path.replace(/^\//, '');
+    <!-- Primary Meta Tags -->
+    <title>Page Not Found | Meatlovers Nairobi - Restaurant</title>
+    <meta name="description"
+        content="Oops! The page you're looking for cannot be found. Return to Meatlovers Restaurant homepage to explore our delicious grilled meats and Kenyan cuisine.">
+    <meta name="keywords" content="404 error, page not found, Meatlovers Nairobi, restaurant error page">
 
-        // Check if the path has no extension and isn't a directory
-        if (cleanPath && !cleanPath.includes('.') && !cleanPath.endsWith('/')) {
-            // Try to fetch the HTML file
-            fetch(cleanPath + '.html')
-                .then(response => {
-                    if (response.ok) {
-                        window.location.replace(cleanPath + '.html');
-                    } else {
-                        window.location.replace('/404.html');
-                    }
-                })
-                .catch(() => {
-                    window.location.replace('/404.html');
-                });
+    <base href="/Meatlovers/">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://meatlovers.co.ke/404">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meatlovers.co.ke/404">
+    <meta property="og:title" content="404 - Page Not Found | Meatlovers Nairobi">
+    <meta property="og:description"
+        content="The page you're looking for doesn't exist. Let's get you back to deliciousness!">
+    <meta property="og:image" content="assets/img/hero/burger.webp">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ===== 404 ERROR PAGE STYLES ===== */
+
+        /* Hero Section - Dramatic Error */
+        .error-hero {
+            min-height: 80vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.75) 100%),
+                url('assets/img/hero/interior3.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
         }
-    </script>
+
+        /* Animated smoke/grill effect */
+        .error-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            pointer-events: none;
+        }
+
+        .error-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Giant 404 Number with Flame Effect */
+        .error-code {
+            font-size: 10rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 50%, #e67e22 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(230, 126, 34, 0.3);
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
+            }
+
+            50% {
+                opacity: 0.95;
+                text-shadow: 0 0 35px rgba(230, 126, 34, 0.5);
+            }
+        }
+
+        .error-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+
+
+        /* Button Group */
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-error-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-error-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-error-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-error-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+
+
+
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 1.6rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .error-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+
+            .suggestions-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .search-box input {
+                padding: 0.7rem 1rem;
+            }
+
+            .search-box button {
+                padding: 0 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4.5rem;
+            }
+
+            .error-title {
+                font-size: 1.3rem;
+            }
+
+            .error-divider {
+                gap: 0.8rem;
+                font-size: 1.2rem;
+            }
+
+            .suggestion-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animation for floating elements */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .floating-meat {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <p>Redirecting...</p>
+
+    <!-- 404 Hero Section -->
+    <section class="error-hero">
+
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Oops! This page cannot be found.</h1>
+            <p class="error-message">We've searched the grill, checked the kitchen, and looked under the sauce — but
+                this page is nowhere to be found. Maybe it got a little too charred?</p>
+
+
+
+            <div class="error-buttons">
+                <a href="" class="btn btn-error-primary">🏠 Back to Homepage</a>
+                <a href="menu" class="btn btn-error-secondary"> Explore Our Menu</a>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="assets/js/main.js" defer></script>
+
+
+    <!-- Schema markup for 404 page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "404 - Page Not Found",
+        "description": "The requested page could not be found on Meatlovers Restaurant website.",
+        "url": "https://meatlovers.co.ke/404",
+        "isPartOf": {
+            "@type": "Restaurant",
+            "name": "Meatlovers Restaurant",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Agriculture House, Mezzanine Floor, Moi Avenue",
+                "addressLocality": "Nairobi",
+                "addressCountry": "KE"
+            },
+            "servesCuisine": "Kenyan, Grilled Meats, Barbecue",
+            "priceRange": "KES 500 - 10,000"
+        }
+    }
+    </script>
 </body>
 
 </html>

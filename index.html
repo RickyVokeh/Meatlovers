@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- Primary Meta Tags -->
-    <title>Meatlovers Restaurant | Best Restaurant in Nairobi</title>
-    <meta name="title" content=" Meatlovers Restaurant | Best Restaurant in Nairobi">
+    <title>Meatlovers Restaurant | Best Grilled Meats in Nairobi</title>
+    <meta name="title" content="Meatlovers Restaurant | Best Grilled Meats in Nairobi">
     <meta name="description"
         content="Experience Nairobi's finest meat dishes at Meatlovers. Succulent grilled meats, cozy ambiance, and exceptional service. Book your table today!">
     <meta name="keywords"
@@ -18,11 +18,11 @@
     <base href="/Meatlovers/">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://meatlovers.co.ke/">
+    <link rel="canonical" href="https://meatlovers.co.ke/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="httpS://Meatlovers.co.ke/">
+    <meta property="og:url" content="https://meatlovers.co.ke/">
     <meta property="og:title" content="Meatlovers Restaurant - Best Meat Cuisine in Nairobi">
     <meta property="og:description"
         content="Experience Nairobi's finest meat dishes. Succulent grilled meats, cozy ambiance, and exceptional service.">
@@ -39,51 +39,196 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <link rel="manifest" href="manifest.json">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
     <script src="assets/js/url-router.js" defer></script>
 
+    <!-- Inline critical CSS for performance -->
+    <style>
+        /* Critical performance fixes and modern enhancements */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Lazy loading blur effect */
+        .featured-img img {
+            transition: transform 0.4s ease, opacity 0.3s;
+        }
+
+        .featured-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Modern hero overlay animation */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+            pointer-events: none;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Performance: will-change for animated elements */
+        .featured-card:hover .featured-img img {
+            transform: scale(1.08);
+        }
+
+        /* Modern happy hours styling */
+        .happy-hours-minimal {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c1810 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .happy-mini-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .happy-hours-minimal h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .happy-hours-minimal p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .happy-mini-tag span {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        /* Newsletter form modern styling */
+        .footer-col input[type="email"] {
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #2a2a2a;
+            color: white;
+            width: 100%;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col input[type="email"]::placeholder {
+            color: #999;
+        }
+
+        /* View Menu button centered */
+        .view-menu-wrapper {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .happy-hours-minimal h2 {
+                font-size: 1.6rem;
+            }
+
+            .happy-hours-minimal p {
+                font-size: 0.95rem;
+            }
+
+            .featured-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .happy-mini-badge {
+                font-size: 0.75rem;
+            }
+
+            .happy-mini-tag span {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Delivery partners modern enhancements */
+        .delivery-card {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        /* Stats counter animation */
+        .stat-number {
+            display: inline-block;
+        }
+    </style>
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "Meatlovers Restaurant",
-    "image": "assets/img/dishes/beef stir fry.webp",
-    "@id": "https://meatlovers.co.ke",
-    "url": "https://meatlovers.co.ke",
-    "telephone": "+254701616385",
-    "priceRange": "$$",
-    "servesCuisine": ["Kenyan", "Grill", "Barbecue", "Steakhouse"],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Moi Avenue",
-      "addressLocality": "Nairobi",
-      "addressRegion": "Nairobi County",
-      "postalCode": "00100",
-      "addressCountry": "KE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "-1.28789",
-      "longitude": "36.82681"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "05:00",
-        "closes": "23:00"
-      }
-    ],
-    "menu": "https://meatlovers.co.ke/menu",
-    "acceptsReservations": "True"
-  }
-  </script>
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Meatlovers Restaurant",
+        "image": "assets/img/dishes/beef stir fry.webp",
+        "@id": "https://meatlovers.co.ke",
+        "url": "https://meatlovers.co.ke",
+        "telephone": "+254701616385",
+        "priceRange": "$$",
+        "servesCuisine": ["Kenyan", "Grill", "Barbecue", "Steakhouse"],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Moi Avenue, Agriculture House, Mezzanine Floor",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-1.28789",
+            "longitude": "36.82681"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "05:00",
+                "closes": "23:00"
+            }
+        ],
+        "menu": "https://meatlovers.co.ke/menu",
+        "acceptsReservations": "True"
+    }
+    </script>
 </head>
 
 <body>
@@ -93,7 +238,7 @@
             <div class="header-wrapper">
                 <a href="" class="logo">
                     <img src="assets/img/icons/meatlovers2-logo.webp" height="90" width="90"
-                        alt="Meatlovers Restaurant Logo">
+                        alt="Meatlovers Restaurant Logo" loading="eager">
                     <div class="logo-text">Meat<span>Lovers</span>Restaurant</div>
                 </a>
 
@@ -116,7 +261,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Optimized -->
     <section class="hero">
         <div class="hero-content">
             <h1>Welcome To Meatlovers Restaurant</h1>
@@ -129,7 +274,7 @@
         </div>
     </section>
 
-    <!-- Featured Dishes -->
+    <!-- Featured Dishes Section -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Signature Dishes</h2>
@@ -138,12 +283,13 @@
                 <div class="featured-card">
                     <div class="featured-img">
                         <img src="assets/img/dishes/t-bone steak.jpg"
-                            alt="Grilled T-Bone Steak with rosemary at Meatlovers Nairobi" loading="lazy">
+                            alt="Grilled T-Bone Steak with rosemary at Meatlovers Nairobi" loading="lazy"
+                            decoding="async">
                     </div>
                     <div class="featured-content">
                         <h3>T-Bone Steak</h3>
-                        <p>Grilled pepper steak on bone with black pepper and
-                            chopped herbs served with mushroom sauce.</p>
+                        <p>Grilled pepper steak on bone with black pepper and chopped herbs served with mushroom sauce.
+                        </p>
                         <span class="price">KES 900</span>
                     </div>
                 </div>
@@ -151,13 +297,12 @@
                 <!-- Dish 2 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/chicken biryani.webp"
-                            alt="Traditional Nyama Choma with kachumbari at Meatlovers Nairobi" loading="lazy">
+                        <img src="assets/img/dishes/chicken biryani.webp" alt="Chicken Biryani at Meatlovers Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
                         <h3>Chicken Biryani</h3>
-                        <p>Delicious rice dish loaded with spicy marinated chichen
-                            and caramarized onions.</p>
+                        <p>Delicious rice dish loaded with spicy marinated chicken and caramelized onions.</p>
                         <span class="price">KES 750</span>
                     </div>
                 </div>
@@ -165,25 +310,25 @@
                 <!-- Dish 3 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/beef stir fry.webp"
-                            alt="Traditional Nyama Choma with kachumbari at Meatlovers Nairobi" loading="lazy">
+                        <img src="assets/img/dishes/beef stir fry.webp" alt="Beef stir fry at Meatlovers Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
-                        <h3>Beef stir fry</h3>
+                        <h3>Beef Stir Fry</h3>
                         <p>Cooked and fried with dark soy and tomato concasse sauce served with traditional kachumbari,
                             ugali, and sukuma wiki.</p>
                         <span class="price">KES 700</span>
                     </div>
                 </div>
 
-                <!-- Dish 4-->
+                <!-- Dish 4 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/chicken-dish.webp"
-                            alt="Traditional Nyama Choma with kachumbari at Meatlovers Nairobi" loading="lazy">
+                        <img src="assets/img/dishes/chicken-dish.webp" alt="Chicken platter at Meatlovers Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
-                        <h3>Chicken platter</h3>
+                        <h3>Chicken Platter</h3>
                         <p>Whole chicken prepared to customers preference.</p>
                         <span class="price">KES 2,700</span>
                     </div>
@@ -192,13 +337,13 @@
                 <!-- Dish 5 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/mbuzi-wet-fry.webp"
-                            alt="Traditional Nyama Choma with kachumbari at Meatlovers Nairobi" loading="lazy">
+                        <img src="assets/img/dishes/mbuzi-wet-fry.webp" alt="Mbuzi Wet fry at Meatlovers Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
-                        <h3>Mbuzi Wet fry</h3>
-                        <p>Finely sliced goat tossed in onions, green pepper, tomatoes,
-                            carrots, a touch of dhania, finished with little concasse sauce.</p>
+                        <h3>Mbuzi Wet Fry</h3>
+                        <p>Finely sliced goat tossed in onions, green pepper, tomatoes, carrots, a touch of dhania,
+                            finished with concasse sauce.</p>
                         <span class="price">KES 650</span>
                     </div>
                 </div>
@@ -206,93 +351,91 @@
                 <!-- Dish 6 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/TAM BUGHER.jpg"
-                            alt="Signature Meatlovers Burger with fries in Nairobi" loading="lazy">
+                        <img src="assets/img/dishes/TAM BUGHER.jpg" alt="Meatlovers Burger with fries in Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
                         <h3>Meatlovers Burger</h3>
-                        <p>Calamarized onions, beef pate, lettuce, tomato slice, onions.</p>
+                        <p>Caramelized onions, beef patty, lettuce, tomato slice, onions.</p>
                         <span class="price">KES 300</span>
                     </div>
                 </div>
+
                 <!-- Dish 7 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/gold-mega-platter.webp"
-                            alt="Signature Meatlovers Burger with fries in Nairobi" loading="lazy">
+                        <img src="assets/img/dishes/gold-mega-platter.webp" alt="Meatlovers Platter in Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
                         <h3>Meatlovers Platter</h3>
-                        <p>All meat assorted in quarters quantities. Beef, lamb,
-                            chicken, sausage and potato wedges. Served with
-                            kachumbari on side.</p>
+                        <p>All meat assorted in quarters quantities. Beef, lamb, chicken, sausage and potato wedges.
+                            Served with kachumbari.</p>
                         <span class="price">KES 1,800</span>
                     </div>
                 </div>
+
                 <!-- Dish 8 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/burger.webp" alt="Signature Meatlovers Burger with fries in Nairobi"
-                            loading="lazy">
+                        <img src="assets/img/dishes/burger.webp" alt="Double Cheese Burger at Meatlovers Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
                         <h3>Double Cheese & Onions</h3>
-                        <p>Lettuce, Tomato slice, Onions, Beef Pate, Cheese,
-                            Calamarized onions, Beef Pate, Cheese, Calamarized onions.</p>
+                        <p>Lettuce, Tomato slice, Onions, Beef Patty, Cheese, Caramelized onions.</p>
                         <span class="price">KES 800</span>
                     </div>
                 </div>
+
                 <!-- Dish 9 -->
                 <div class="featured-card">
                     <div class="featured-img">
-                        <img src="assets/img/dishes/mbuzi-meatballs.webp" alt="mbuzi-meatballs" loading="lazy">
+                        <img src="assets/img/dishes/mbuzi-meatballs.webp" alt="Mbuzi meatballs at Meatlovers Nairobi"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="featured-content">
-                        <h3>Mbuzi meatballs</h3>
-                        <p>Mbuzi mince perfectly baked and moistened in spicy
-                            tomato concasse sauce</p>
+                        <h3>Mbuzi Meatballs</h3>
+                        <p>Mbuzi mince perfectly baked and moistened in spicy tomato concasse sauce.</p>
                         <span class="price">KES 700</span>
                     </div>
                 </div>
-                <a href="menu" class="btn"
-                    style="margin: 1rem auto 0 auto; text-align: center; display: block; width: fit-content;">View
-                    our menu</a>
+            </div>
+            <div class="view-menu-wrapper">
+                <a href="menu" class="btn">View Full Menu →</a>
             </div>
         </div>
     </section>
+
     <!-- Delivery Partners Section -->
     <section class="section delivery-partners">
         <div class="container">
             <div class="delivery-header">
-                <span class="delivery-tag">You can also make orders online</span>
-                <h2 class="section-title">Order from your favorite platform</h2>
-                <p class="delivery-subtitle">Get our delicious meals delivered right to your doorstep, You can find us
-                    in all these platforms</p>
+                <span class="delivery-tag">Order Online</span>
+                <h2 class="section-title">Get it delivered to your doorstep</h2>
+                <p class="delivery-subtitle">Find us on your favorite delivery platforms</p>
             </div>
 
             <div class="delivery-grid">
-                <!-- Glovo -->
                 <a href="https://glovoapp.com/en" class="delivery-card" target="_blank" rel="noopener noreferrer">
                     <div class="delivery-logo">
-                        <img src="assets/img/icons/glovo-logo.svg" alt="Order from Glovo">
+                        <img src="assets/img/icons/glovo-logo.svg" alt="Order from Glovo" loading="lazy">
                     </div>
                     <span class="delivery-name">Glovo</span>
                     <span class="delivery-action">Order Now →</span>
                 </a>
 
-                <!-- Uber eats -->
                 <a href="https://www.ubereats.com/ke" class="delivery-card" target="_blank" rel="noopener noreferrer">
                     <div class="delivery-logo">
-                        <img src="assets/img/icons/Uber_Eats.svg" alt="Order from Uber Eats">
+                        <img src="assets/img/icons/Uber_Eats.svg" alt="Order from Uber Eats" loading="lazy">
                     </div>
                     <span class="delivery-name">Uber Eats</span>
                     <span class="delivery-action">Order Now →</span>
                 </a>
 
-                <!-- Bolt Food -->
                 <a href="https://food.bolt.eu/" class="delivery-card" target="_blank" rel="noopener noreferrer">
                     <div class="delivery-logo">
-                        <img src="assets/img/icons/bolt-food-logo.svg" alt="Order from Bolt Food">
+                        <img src="assets/img/icons/bolt-food-logo.svg" alt="Order from Bolt Food" loading="lazy">
                     </div>
                     <span class="delivery-name">Bolt Food</span>
                     <span class="delivery-action">Order Now →</span>
@@ -310,7 +453,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Nairobi's finest meat experience</h2>
+                    <h2>Nairobi's Finest Meat Experience</h2>
                     <p>At Meatlovers, we're passionate about bringing you the highest quality meats, expertly prepared
                         and grilled to perfection. Our chefs combine traditional Kenyan grilling techniques with
                         international flavors to create an unforgettable dining experience.</p>
@@ -321,88 +464,36 @@
 
                 <div class="about-stats">
                     <div>
-                        <span class="stat-number">10+</span>
+                        <span class="stat-number" data-count="12">12+</span>
                         <span class="stat-label">Years of Excellence</span>
                     </div>
                     <div>
-                        <span class="stat-number">50+</span>
+                        <span class="stat-number" data-count="50">50+</span>
                         <span class="stat-label">Meat Cuts</span>
                     </div>
                     <div>
-                        <span class="stat-number">10k+</span>
+                        <span class="stat-number" data-count="15">15k+</span>
                         <span class="stat-label">Happy Customers</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Happy Hours Section - Minimal -->
+
+    <!-- Happy Hours Section -->
     <section class="section happy-hours-minimal">
         <div class="container">
             <div class="happy-hours-minimal-content">
-                <span class="happy-mini-badge"> HAPPY HOURS </span>
+                <span class="happy-mini-badge">🍺 HAPPY HOURS 🍖</span>
                 <h2>Mon - Fri: 4PM - 7PM</h2>
                 <p>Buy 1 Get 1 Free on All Drinks | 20% Off on Grilled Meats</p>
                 <div class="happy-mini-tag">
-                    <span>Weekend Special: 3PM - 6PM</span>
+                    <span>🎉 Weekend Special: 3PM - 6PM 🎉</span>
                 </div>
-                <a href="contact" class="btn">Join now</a>
+                <a href="contact" class="btn" style="margin-top: 1.5rem;">Grab the offer</a>
             </div>
         </div>
     </section>
-
-    <!-- Testimonials 
-    <section class="section testimonials">
-        <div class="container">
-            <h2 class="section-title">Our Customer Reviews</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The best nyama choma in Nairobi! The meat is always perfectly grilled
-                        and the service is exceptional. My go-to spot for family dinners."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="ttps://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-                                alt="Joy." loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Joy Teezer.</h4>
-                            <p>Regular Customer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Incredible atmosphere and even better food. The T-bone steak is out of
-                        this world! Highly recommended for meat lovers."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="ttps://images.unsplash.com/photo-1494790108777-466d853bf23e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-                                alt="Ricky." loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ricky Mutua</h4>
-                            <p>Food Enthusiast</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Perfect spot for business lunches or romantic dinners. The staff is
-                        attentive and the meat quality is consistently excellent."</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="ttps://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-                                alt="David." loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>David Kamau.</h4>
-                            <p>Business Professional</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer>
@@ -413,15 +504,17 @@
                     <p>Nairobi's premier destination for exceptional grilled meats. Experience the perfect blend of
                         quality, taste, and ambiance.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" ref="noopener noreferrer"
-                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"
+                                loading="lazy"></a>
                         <a href="https://www.instagram.com/meatloversltd?igsh=NThjbXU0czZ2MnRhMQ==" target="_blank"
-                            ref="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
-                                alt="Instagram"></a>
-                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener norefferer"
-                            aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
-                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" ref="noopener noreferrer"
-                            aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok"></a>
+                            rel="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
+                                alt="Instagram" loading="lazy"></a>
+                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"
+                                loading="lazy"></a>
+                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok" loading="lazy"></a>
                     </div>
                 </div>
 
@@ -440,7 +533,7 @@
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul class="contact-info">
-                        <li> Moi Avenue, Agriculture House, Mezzanine Floor</li>
+                        <li>📍 Moi Avenue, Agriculture House, Mezzanine Floor</li>
                         <li>📞 +254 701616385</li>
                         <li>✉️ info@meatlovers.co.ke</li>
                         <li>🕒 Mon-Sun: 05:00 - 23:00</li>
@@ -450,9 +543,8 @@
                 <div class="footer-col">
                     <h3>Newsletter</h3>
                     <p>Subscribe for special offers and events</p>
-                    <form style="margin-top: 1rem;">
-                        <input type="email" placeholder="Your email"
-                            style="padding: 0.5rem; width: 100%; margin-bottom: 0.5rem;">
+                    <form id="newsletterForm" style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" required>
                         <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
                     </form>
                 </div>
@@ -464,8 +556,103 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript - Optimized for performance -->
     <script src="assets/js/main.js" defer></script>
+
+    <script>
+        // Performance optimized JavaScript
+        (function () {
+            'use strict';
+
+            // Update copyright year
+            const yearSpan = document.querySelector('.current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Newsletter form handler
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="email"]');
+                    if (emailInput && emailInput.value.trim()) {
+                        alert('🎉 Thank you for subscribing! You\'ll receive our latest offers.');
+                        emailInput.value = '';
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+
+            // Lazy loading images with Intersection Observer for performance
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('.featured-img img');
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            // Already has src, just unobserve
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
+
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function () {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+
+                // Close menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+
+            // Simple counter animation for stats (on viewport enter)
+            const statNumbers = document.querySelectorAll('.stat-number');
+            if (statNumbers.length && 'IntersectionObserver' in window) {
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            const rawValue = el.getAttribute('data-count') || el.innerText.replace('+', '');
+                            const hasPlus = el.innerText.includes('+');
+                            let targetVal = parseInt(rawValue, 10);
+                            if (isNaN(targetVal)) targetVal = 10;
+
+                            let current = 0;
+                            const increment = Math.ceil(targetVal / 30);
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= targetVal) {
+                                    el.innerText = targetVal + (hasPlus ? '+' : '');
+                                    clearInterval(timer);
+                                } else {
+                                    el.innerText = current + (hasPlus ? '+' : '');
+                                }
+                            }, 20);
+                            statsObserver.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                statNumbers.forEach(stat => statsObserver.observe(stat));
+            }
+        })();
+    </script>
 </body>
 
 </html>
