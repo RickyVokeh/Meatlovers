@@ -74,17 +74,6 @@
             overflow: hidden;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
-            pointer-events: none;
-        }
-
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
@@ -97,7 +86,7 @@
 
         /* Modern happy hours styling */
         .happy-hours-minimal {
-            color: white;
+            color: rgb(10, 9, 9);
             text-align: center;
             padding: 3rem 0;
         }
@@ -139,41 +128,6 @@
         .view-menu-wrapper {
             text-align: center;
             margin-top: 2rem;
-        }
-
-        /* Responsive improvements */
-        @media (max-width: 768px) {
-            .happy-hours-minimal h2 {
-                font-size: 1.6rem;
-            }
-
-            .happy-hours-minimal p {
-                font-size: 0.95rem;
-            }
-
-            .featured-grid {
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .happy-mini-badge {
-                font-size: 0.75rem;
-            }
-
-            .happy-mini-tag span {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Delivery partners modern enhancements */
-        .delivery-card {
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-
-        /* Stats counter animation */
-        .stat-number {
-            display: inline-block;
         }
     </style>
 
@@ -469,11 +423,11 @@
     <section class="section happy-hours-minimal">
         <div class="container">
             <div class="happy-hours-minimal-content">
-                <span class="happy-mini-badge">🍺 HAPPY HOURS 🍖</span>
+                <span class="happy-mini-badge"> HAPPY HOURS </span>
                 <h2>Mon - Fri: 4PM - 7PM</h2>
                 <p>Buy 1 Get 1 Free on All Drinks | 20% Off on Grilled Meats</p>
                 <div class="happy-mini-tag">
-                    <span>🎉 Weekend Special: 3PM - 6PM 🎉</span>
+                    <span> Weekend Special: 3PM - 6PM </span>
                 </div>
                 <a href="contact" class="btn" style="margin-top: 1.5rem;">Grab the offer</a>
             </div>
@@ -486,23 +440,18 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Meatlovers</h3>
-                    <p>Nairobi's premier destination for exceptional grilled meats. Experience the perfect blend of
-                        quality, taste, and ambiance.</p>
+                    <p>Nairobi's premier destination for exceptional grilled meats.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"
-                                loading="lazy"></a>
-                        <a href="https://www.instagram.com/meatloversltd?igsh=NThjbXU0czZ2MnRhMQ==" target="_blank"
-                            rel="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
-                                alt="Instagram" loading="lazy"></a>
+                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/meatloversltd" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"><img src="assets/img/icons/instagram.svg" alt="Instagram"></a>
                         <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener noreferrer"
-                            aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"
-                                loading="lazy"></a>
+                            aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
                         <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok" loading="lazy"></a>
+                            aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok"></a>
                     </div>
                 </div>
-
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
@@ -511,35 +460,32 @@
                         <li><a href="about">About Us</a></li>
                         <li><a href="gallery">Gallery</a></li>
                         <li><a href="contact">Contact</a></li>
-                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                        <li><a href="privacy-policy">Privacy policy</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul class="contact-info">
-                        <li>📍 Moi Avenue, Agriculture House, Mezzanine Floor</li>
+                        <li> Moi avenue, Agriculture House, Mezzanine Floor</li>
                         <li>📞 +254 701616385</li>
                         <li>✉️ info@meatlovers.co.ke</li>
                         <li>🕒 Mon-Sun: 05:00 - 23:00</li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h3>Newsletter</h3>
-                    <p>Subscribe for special offers and events</p>
-                    <form id="newsletterForm" style="margin-top: 1rem;">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
-                    </form>
+                    <p>Subscribe for special offers</p>
+                    <form style="margin-top: 1rem;"><input type="email" placeholder="Your email"
+                            style="padding: 0.6rem; border-radius: 8px; border: 1px solid #ddd; width: 100%; margin-bottom: 0.5rem;"><button
+                            type="submit" class="btn" style="width: 100%;">Subscribe</button></form>
                 </div>
             </div>
-
             <div class="copyright">
                 <p>&copy; <span class="current-year">2026</span> Meatlovers Restaurant || All rights reserved.</p>
             </div>
         </div>
     </footer>
+
 
     <!-- JavaScript - Optimized for performance -->
     <script src="assets/js/main.js" defer></script>
@@ -548,27 +494,6 @@
         // Performance optimized JavaScript
         (function () {
             'use strict';
-
-            // Update copyright year
-            const yearSpan = document.querySelector('.current-year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
-
-            // Newsletter form handler
-            const newsletterForm = document.getElementById('newsletterForm');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const emailInput = this.querySelector('input[type="email"]');
-                    if (emailInput && emailInput.value.trim()) {
-                        alert('🎉 Thank you for subscribing! You\'ll receive our latest offers.');
-                        emailInput.value = '';
-                    } else {
-                        alert('Please enter a valid email address.');
-                    }
-                });
-            }
 
             // Lazy loading images with Intersection Observer for performance
             if ('IntersectionObserver' in window) {
@@ -585,26 +510,6 @@
                 lazyImages.forEach(img => imageObserver.observe(img));
             }
 
-            // Hamburger menu toggle
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', function () {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-
-                // Close menu when clicking on a link
-                document.querySelectorAll('.nav-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.classList.remove('menu-open');
-                    });
-                });
-            }
 
             // Simple counter animation for stats (on viewport enter)
             const statNumbers = document.querySelectorAll('.stat-number');
