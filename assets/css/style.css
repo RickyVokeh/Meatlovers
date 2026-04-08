@@ -627,7 +627,7 @@ header {
 
 /* ===== FOOTER ===== */
 footer {
-    background: #1a1a1a;
+    background: #111111;
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -660,7 +660,7 @@ footer {
 }
 
 .footer-col a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
     padding-left: 5px;
 }
 
@@ -668,7 +668,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #cccccc;
+    color: #f7f6f6;
 }
 
 .social-links {

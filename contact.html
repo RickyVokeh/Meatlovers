@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- Primary Meta Tags -->
     <title>Contact Meatlovers Nairobi | Book a Table & Location</title>
@@ -17,11 +17,22 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://meatlovers.co.ke/contact">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meatlovers.co.ke/contact">
+    <meta property="og:title" content="Contact Meatlovers - Book a Table in Nairobi">
+    <meta property="og:description"
+        content="Get in touch with Meatlovers. Reserve your table, find our location, or send us a message.">
+    <meta property="og:image" content="assets/img/hero/interior6.jpeg">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <link rel="manifest" href="manifest.json">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -29,359 +40,435 @@
     <script src="assets/js/url-router.js" defer></script>
 
     <style>
-        /* Contact page specific styles */
-        /* Contact page specific styles */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
+        /* ===== MODERN CONTACT PAGE STYLES ===== */
 
-        /* Contact Information Card */
-        .contact-info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            height: 100%;
-        }
-
-        /* Booking Information Card */
-        .booking-info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            height: 100%;
-            text-align: center;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .contact-detail:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: rgb(245, 152, 14);
-            border-radius: 50%;
+        /* Hero Section */
+        .contact-hero {
+            height: 45vh;
+            min-height: 380px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.6) 100%),
+                url('assets/img/hero/interior6.jpeg');
+            background-size: cover;
+            background-position: center 40%;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             color: white;
+        }
+
+        .contact-hero .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero .hero-content p {
             font-size: 1.2rem;
-            flex-shrink: 0;
+            opacity: 0.9;
         }
 
-        .contact-text h3 {
-            margin-bottom: 0.3rem;
-            font-size: 1.1rem;
+        /* Contact Grid - Modern Layout */
+        .contact-grid-modern {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-text p {
-            color: var(--gray);
+        /* Contact Cards */
+        .contact-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            height: 100%;
         }
 
-        /* Booking Methods Styles */
-        .booking-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px -15px rgba(230, 126, 34, 0.12);
         }
 
-        .booking-method {
+        .card-header {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .card-header-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(230, 126, 34, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--secondary);
+        }
+
+        /* Contact Details List */
+        .contact-details {
+            display: flex;
+            flex-direction: column;
             gap: 1.2rem;
-            padding: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            width: 42px;
+            height: 42px;
+            background: rgb(238, 163, 24);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .contact-item-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+
+        .contact-item-content p,
+        .contact-item-content a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .contact-item-content a:hover {
+            color: var(--primary);
+        }
+
+        /* Booking Methods - Modern */
+        .booking-methods-modern {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .method-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
             background: var(--light);
-            border-radius: 12px;
-            transition: var(--transition);
-            text-align: left;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
-        .booking-method:hover {
-            transform: translateX(5px);
-            background: var(--light-gray);
+        .method-card:hover {
+            transform: translateX(8px);
+            background: rgba(230, 126, 34, 0.08);
         }
 
-        .booking-method-icon {
+        .method-icon {
             width: 50px;
             height: 50px;
-            background: rgb(245, 152, 14);
-            border-radius: 50%;
+            background: var(--primary);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            flex-shrink: 0;
             color: white;
+            flex-shrink: 0;
         }
 
-        .booking-method-content {
+        .method-content {
             flex: 1;
         }
 
-        .booking-method-content h3 {
-            margin-bottom: 0.2rem;
-            font-size: 1.1rem;
-            color: var(--secondary);
-        }
-
-        .booking-method-content p {
-            font-size: 0.85rem;
-            color: var(--gray);
-            margin-bottom: 0.5rem;
-        }
-
-        .booking-contact-link {
-            display: inline-block;
+        .method-content h3 {
             font-size: 1rem;
-            font-weight: 500;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+
+        .method-content p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .method-link {
+            font-weight: 600;
             color: var(--primary);
-            text-decoration: none;
-            margin-right: 1rem;
-            transition: var(--transition);
+            font-size: 0.9rem;
         }
 
-        .booking-contact-link:hover {
-            color: var(--primary-dark);
-            transform: translateX(2px);
+        .whatsapp-card .method-icon {
+            background: #25D366;
         }
 
-        .whatsapp-link {
+        .whatsap-method-link {
+            display: inline-block;
             background: #25D366;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            display: inline-block;
-            margin-top: 0.3rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
         }
 
-        .whatsapp-link:hover {
-            background: #128C7E;
-            color: white;
-            transform: translateX(2px);
-        }
-
-        .booking-note {
-            background: var(--secondary);
-            color: white;
+        /* Booking Note */
+        .booking-note-modern {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            border-radius: 20px;
             padding: 1.5rem;
-            border-radius: 12px;
             margin-top: 1.5rem;
-            text-align: left;
+            color: white;
         }
 
-        .booking-note p {
+        .booking-note-modern p {
             margin-bottom: 0.8rem;
             font-weight: 500;
         }
 
-        .booking-note ul {
-            margin: 0.5rem 0 1rem 1.5rem;
+        .booking-note-modern ul {
+            margin: 0.5rem 0 0 1.2rem;
             list-style: disc;
         }
 
-        .booking-note li {
+        .booking-note-modern li {
             margin-bottom: 0.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
         }
 
-        .booking-response-time {
+        .response-time {
             margin-top: 1rem;
-            padding-top: 1rem;
+            padding-top: 0.8rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--accent);
         }
 
-        /* Quick Hours Reference */
-        .quick-hours {
+        /* Map Container */
+        .map-container-modern {
+            margin: 2rem 0 3rem;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-container-modern iframe {
+            width: 100%;
+            height: 380px;
+            border: none;
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--light);
+            border-radius: 32px;
+            padding: 3rem;
             margin-top: 2rem;
         }
 
-        .hours-grid {
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-item p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        /* Opening Hours Quick View */
+        .hours-quick {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            gap: 0.8rem;
             margin-top: 1rem;
         }
 
-        .hours-item {
-            text-align: center;
-            padding: 1rem;
+        .hour-badge {
             background: var(--light);
-            border-radius: 4px;
+            padding: 0.6rem;
+            border-radius: 14px;
+            text-align: center;
         }
 
-        .hours-item .day {
+        .hour-badge .day {
             font-weight: 600;
             color: var(--primary);
+            font-size: 0.8rem;
         }
 
-        .map-container {
-            margin-top: 3rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        .hour-badge .time {
+            font-size: 0.8rem;
+            color: var(--gray);
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        /* Responsive Styles */
+        /* Responsive */
         @media (max-width: 992px) {
-            .contact-grid {
-                gap: 2rem;
+            .contact-grid-modern {
+                gap: 1.5rem;
             }
 
-            .booking-method {
-                padding: 1rem;
-            }
-
-            .booking-method-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .booking-method {
-                padding: 1rem;
-            }
-
-            .booking-method-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-
-            .booking-method-content h3 {
-                font-size: 1rem;
-            }
-
-            .booking-contact-link {
-                font-size: 0.9rem;
-                margin-right: 0.5rem;
-            }
-
-            .whatsapp-link {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.85rem;
-            }
-
-            .hours-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .booking-method {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .booking-method-icon {
-                width: 55px;
-                height: 55px;
-                font-size: 1.6rem;
-            }
-
-            .booking-method-content {
-                text-align: center;
-            }
-
-            .booking-contact-link {
-                display: inline-block;
-                margin: 0.2rem 0;
-            }
-
-            .contact-info-card,
-            .booking-info-card {
+            .contact-card {
                 padding: 1.5rem;
             }
         }
 
-
-        .map-container {
-            margin-top: 3rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .hours-item {
-            text-align: center;
-            padding: 1rem;
-            background: var(--light);
-            border-radius: 4px;
-        }
-
-        .hours-item .day {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
         @media (max-width: 768px) {
-            .contact-grid {
+            .contact-hero {
+                height: 35vh;
+                min-height: 300px;
+            }
+
+            .contact-hero .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid-modern {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .faq-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hours-quick {
                 grid-template-columns: 1fr;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
+            .method-card:hover {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-card {
+                padding: 1.2rem;
             }
 
-            .hours-grid {
-                grid-template-columns: 1fr;
+            .card-header h2 {
+                font-size: 1.3rem;
             }
+
+            .method-card {
+                flex-wrap: wrap;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .method-content {
+                text-align: center;
+            }
+
+            .booking-note-modern ul {
+                text-align: left;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-card,
+        .map-container-modern,
+        .faq-section {
+            animation: fadeUp 0.5s ease backwards;
+        }
+
+        .contact-card:first-child {
+            animation-delay: 0.05s;
+        }
+
+        .contact-card:last-child {
+            animation-delay: 0.1s;
+        }
+
+        .map-container-modern {
+            animation-delay: 0.15s;
+        }
+
+        .faq-section {
+            animation-delay: 0.2s;
+        }
+
+        /* Newsletter fix */
+        .footer-col input[type="email"] {
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 100%;
+            margin-bottom: 0.75rem;
         }
     </style>
 </head>
 
 <body>
-    <!--header -->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-wrapper">
                 <a href="" class="logo">
                     <img src="assets/img/icons/meatlovers2-logo.webp" height="90" width="90"
-                        alt="Meatlovers Restaurant Logo">
+                        alt="Meatlovers Restaurant Logo" loading="eager">
                     <div class="logo-text">Meat<span>Lovers</span>Restaurant</div>
                 </a>
 
@@ -404,10 +491,8 @@
         </div>
     </header>
 
-
-    <!-- Page Hero -->
-    <section class="hero"
-        style="height: 40vh; min-height: 300px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/img/hero/interior6.jpeg');">
+    <!-- Hero Section -->
+    <section class="contact-hero">
         <div class="hero-content">
             <h1>Contact Us</h1>
             <p>We'd love to hear from you. Book a table or ask us anything</p>
@@ -415,171 +500,180 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section">
+    <section class="section" style="padding-top: 3rem;">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Information -->
-                <div>
-                    <div class="contact-info-card">
-                        <h2 style="margin-bottom: 2rem;">Get in Touch</h2>
+            <div class="contact-grid-modern">
+                <!-- Contact Information Card -->
+                <div class="contact-card">
+                    <div class="card-header">
+                        <h2>Get in Touch</h2>
+                    </div>
 
-                        <div class="contact-detail">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
+                            <div class="contact-item-content">
                                 <h3>Visit Us</h3>
-                                <p>Moi Avenue,Agriculture House<br>Nairobi CBD, Kenya</p>
+                                <p>Moi Avenue, Agriculture House, Mezzanine Floor<br>Nairobi CBD, Kenya</p>
                             </div>
                         </div>
 
-                        <div class="contact-detail">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📞</div>
+                            <div class="contact-item-content">
                                 <h3>Call Us</h3>
-                                <p>+254 701616385<br>+254 701616385</p>
+                                <p><a href="tel:+254701616385">+254 701 616385</a></p>
                             </div>
                         </div>
 
-                        <div class="contact-detail">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">✉️</div>
+                            <div class="contact-item-content">
                                 <h3>Email Us</h3>
-                                <p>info@meatlovers.co.ke<br>reservations@meatlovers.co.ke</p>
+                                <p><a href="mailto:info@meatlovers.co.ke">info@meatlovers.co.ke</a></p>
                             </div>
                         </div>
 
-                        <div class="contact-detail">
-                            <div class="contact-icon">🕒</div>
-                            <div class="contact-text">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">🕒</div>
+                            <div class="contact-item-content">
                                 <h3>Opening Hours</h3>
                                 <p>Monday - Sunday: 05:00 - 23:00<br>Kitchen closes at 22:30</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Quick Hours Reference 
-                    <div style="margin-top: 2rem;">
-                        <h3 style="margin-bottom: 1rem;">Quick Hours</h3>
-                        <div class="hours-grid">
-                            <div class="hours-item">
-                                <div class="day">Mon-Thu</div>
-                                <div>05:00 - 23:00</div>
+                    <!-- Quick Hours Reference -->
+                    <div style="margin-top: 1.5rem;">
+                        <div class="hours-quick">
+                            <div class="hour-badge">
+                                <div class="day">Mon - Fri</div>
+                                <div class="time">05:00 - 23:00</div>
                             </div>
-                            <div class="hours-item">
-                                <div class="day">Fri-Sat</div>
-                                <div>11:00 - 00:00</div>
+                            <div class="hour-badge">
+                                <div class="day">Sat - Sun</div>
+                                <div class="time">05:00 - 23:00</div>
                             </div>
-                            <div class="hours-item">
-                                <div class="day">Sunday</div>
-                                <div>12:00 - 22:00</div>
+                            <div class="hour-badge">
+                                <div class="day">Kitchen</div>
+                                <div class="time">Closes 22:30</div>
                             </div>
-                            <div class="hours-item">
+                            <div class="hour-badge">
                                 <div class="day">Holidays</div>
-                                <div>12:00 - 23:00</div>
+                                <div class="time">12:00 - 22:00</div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
 
-                <!-- Booking Information - Call & WhatsApp -->
-                <div>
-                    <div class="contact-info-card booking-info-card">
-                        <h2 style="margin-bottom: 1.5rem;">Book a Table</h2>
-                        <p style="color: var(--gray); margin-bottom: 2rem; text-align: center;">
-                            To make a reservation, please contact us directly via call, email, or WhatsApp.
-                            Our team will assist you within minutes.
-                        </p>
+                <!-- Booking Information Card -->
+                <div class="contact-card">
+                    <div class="card-header">
+                        <div class="card-header-icon"></div>
+                        <h2>Book a Table</h2>
+                    </div>
 
-                        <!-- Contact Methods -->
-                        <div class="booking-methods">
-                            <!-- Call Option -->
-                            <div class="booking-method">
-                                <div class="booking-method-icon">📞</div>
-                                <div class="booking-method-content">
-                                    <h3>Call Us</h3>
-                                    <p>Speak directly with our reservations team</p>
-                                    <a href="tel:+254701616385" class="booking-contact-link">+254 701 616385</a>
-                                </div>
+                    <p style="color: var(--gray); margin-bottom: 1rem; font-size: 0.9rem;">
+                        To make a reservation, please contact us directly via call, email, or WhatsApp.
+                        Our team will assist you within minutes.
+                    </p>
+
+                    <!-- Contact Methods -->
+                    <div class="booking-methods-modern">
+                        <!-- Call Option -->
+                        <a href="tel:+254701616385" class="method-card">
+                            <div class="method-icon">📞</div>
+                            <div class="method-content">
+                                <h3>Call Us</h3>
+                                <p>Speak directly with our team</p>
                             </div>
+                            <span class="method-link">Call Now →</span>
+                        </a>
 
-                            <!-- Email Option -->
-                            <div class="booking-method">
-                                <div class="booking-method-icon">✉️</div>
-                                <div class="booking-method-content">
-                                    <h3>Email Us</h3>
-                                    <p>Send us your reservation request</p>
-                                    <a href="mailto:info@meatlovers.co.ke"
-                                        class="booking-contact-link">info@meatlovers.co.ke</a>
-                                </div>
+                        <!-- Email Option -->
+                        <a href="mailto:info@meatlovers.co.ke" class="method-card">
+                            <div class="method-icon">✉️</div>
+                            <div class="method-content">
+                                <h3>Email Us</h3>
+                                <p>Send your reservation request</p>
                             </div>
+                            <span class="method-link">Send Email →</span>
+                        </a>
 
-                            <!-- WhatsApp Option -->
-                            <div class="booking-method whatsapp-method">
-                                <div class="booking-method-icon">💬</div>
-                                <div class="booking-method-content">
-                                    <h3>WhatsApp Us</h3>
-                                    <p>Message us directly for quick reservations</p>
-                                    <a href="https://wa.me/254701616385?text=Hello%20Meatlovers%2C%20I'd%20like%20to%20book%20a%20table%20for%20"
-                                        class="booking-contact-link whatsapp-link" target="_blank"
-                                        rel="noopener noreferrer">
-                                        Chat on WhatsApp →
-                                    </a>
-                                </div>
+                        <!-- WhatsApp Option -->
+                        <a href="https://wa.me/254701616385?text=Hello%20Meatlovers%2C%20I'd%20like%20to%20book%20a%20table%20for"
+                            class="method-card whatsapp-card" target="_blank" rel="noopener noreferrer">
+                            <div class="method-icon">💬</div>
+                            <div class="method-content">
+                                <h3>WhatsApp Us</h3>
+                                <p>Quick reservations via chat</p>
                             </div>
-                        </div>
+                            <span class="whatsap-method-link">Chat on WhatsApp →</span>
+                        </a>
+                    </div>
 
-                        <!-- Quick Info Note -->
-                        <div class="booking-note">
-                            <p>📋 <strong>What to include when booking:</strong></p>
-                            <ul>
-                                <li>Number of guests</li>
-                                <li>Preferred date and time</li>
-                                <li>Any special requests or dietary restrictions</li>
-                            </ul>
-                            <p class="booking-response-time">We respond within 30 minutes during operating hours</p>
+                    <!-- Booking Note -->
+                    <div class="booking-note-modern">
+                        <p> <strong>What to include when booking:</strong></p>
+                        <ul>
+                            <li>Number of guests</li>
+                            <li>Preferred date and time</li>
+                            <li>Any special requests or dietary restrictions</li>
+                        </ul>
+                        <div class="response-time">
+                            ⏱️ We respond within 30 minutes during operating hours
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Google Maps -->
-            <div class="map-container">
+            <div class="map-container-modern">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1994.4050066750563!2d36.8262293!3d-1.2881505!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e6028612cb%3A0x679e49720c790d8f!2sMeat%20lovers%20restaurant!5e0!3m2!1sen!2ske!4v1771592464084!5m2!1sen!2ske"
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-downgrade" title="Meatlovers Restaurant Location Map"></iframe>
             </div>
 
-            <!-- FAQ Section for Voice Search -->
-            <div style="margin-top: 4rem;">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div>
-                        <h3>Do you have outdoor seating?</h3>
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <div class="card-header" style="border-bottom: none; justify-content: center; margin-bottom: 0;">
+                    <div class="card-header-icon"></div>
+                    <h2 style="text-align: center;">Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3> Do you have outdoor seating?</h3>
                         <p>Yes! Meatlovers features a beautiful outdoor patio perfect for Nairobi evenings. We have
                             heaters available during cooler weather.</p>
-
-                        <h3 style="margin-top: 1.5rem;">Do you take reservations?</h3>
-                        <p>Absolutely! You can book a table online through our website or call us. Walk-ins are always
-                            welcome too.</p>
                     </div>
 
-                    <div>
-                        <h3>Do you have vegetarian options?</h3>
+                    <div class="faq-item">
+                        <h3> Do you take reservations?</h3>
+                        <p>Absolutely! You can book a table via call, email, or WhatsApp. Walk-ins are always welcome
+                            too.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3> Do you have vegetarian options?</h3>
                         <p>While we're a meat-focused restaurant, we offer several delicious vegetarian sides and
                             salads. Ask your server for recommendations!</p>
+                    </div>
 
-                        <h3 style="margin-top: 1.5rem;">Is there parking available?</h3>
+                    <div class="faq-item">
+                        <h3> Is there parking available?</h3>
                         <p>Yes, we have secured parking available for our guests at the back of the restaurant.</p>
                     </div>
 
-                    <div>
-                        <h3>Do you offer takeaway?</h3>
+                    <div class="faq-item">
+                        <h3> Do you offer takeaway?</h3>
                         <p>Yes, we offer takeaway services. Just call ahead or order at the counter.</p>
+                    </div>
 
-                        <h3 style="margin-top: 1.5rem;">Are you open on public holidays?</h3>
-                        <p>Yes, we're open on most public holidays from 12:00 PM to 11:00 PM. Check our Google Business
-                            Profile for holiday updates.</p>
+                    <div class="faq-item">
+                        <h3> Are you open on public holidays?</h3>
+                        <p>Yes, we're open on most public holidays from 12:00 PM to 10:00 PM. Check our Google Business
+                            Profile for updates.</p>
                     </div>
                 </div>
             </div>
@@ -592,17 +686,20 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Meatlovers</h3>
-                    <p>Nairobi's premier destination for exceptional grilled meats.</p>
+                    <p>Nairobi's premier destination for exceptional grilled meats. Experience the perfect blend of
+                        quality, taste, and ambiance since 2010.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" ref="noopener noreferrer"
-                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.facebook.com/share/1FHjSinxAP/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook"><img src="assets/img/icons/facebook.svg" alt="Facebook"
+                                loading="lazy"></a>
                         <a href="https://www.instagram.com/meatloversltd?igsh=NThjbXU0czZ2MnRhMQ==" target="_blank"
-                            ref="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
-                                alt="Instagram"></a>
-                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener norefferer"
-                            aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"></a>
-                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" ref="noopener noreferrer"
-                            aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok"></a>
+                            rel="noopener noreferrer" aria-label="Instagram"><img src="assets/img/icons/instagram.svg"
+                                alt="Instagram" loading="lazy"></a>
+                        <a href="https://x.com/meatlovers_ltd" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter"><img src="assets/img/icons/twitter.svg" alt="Twitter"
+                                loading="lazy"></a>
+                        <a href="https://vm.tiktok.com/ZS9RLMADoyCQE-hi1Ct/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Tiktok"><img src="assets/img/icons/tiktok.svg" alt="Tiktok" loading="lazy"></a>
                     </div>
                 </div>
 
@@ -614,6 +711,7 @@
                         <li><a href="about">About Us</a></li>
                         <li><a href="gallery">Gallery</a></li>
                         <li><a href="contact">Contact</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
                     </ul>
                 </div>
 
@@ -630,9 +728,8 @@
                 <div class="footer-col">
                     <h3>Newsletter</h3>
                     <p>Subscribe for special offers and events</p>
-                    <form style="margin-top: 1rem;">
-                        <input type="email" placeholder="Your email"
-                            style="padding: 0.5rem; width: 100%; margin-bottom: 0.5rem;">
+                    <form id="newsletterForm" style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" required>
                         <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
                     </form>
                 </div>
@@ -646,41 +743,49 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/form_validation.js" defer></script>
+
 
     <!-- FAQ Schema -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you have outdoor seating?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Meatlovers features a beautiful outdoor patio perfect for Nairobi evenings. We have heaters available during cooler weather."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you take reservations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely! You can book a table online through our website or call us. Walk-ins are always welcome too."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you have vegetarian options?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While we're a meat-focused restaurant, we offer several delicious vegetarian sides and salads. Ask your server for recommendations!"
-        }
-      }
-    ]
-  }
-  </script>
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Do you have outdoor seating?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Meatlovers features a beautiful outdoor patio perfect for Nairobi evenings. We have heaters available during cooler weather."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you take reservations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely! You can book a table via call, email, or WhatsApp. Walk-ins are always welcome too."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you have vegetarian options?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "While we're a meat-focused restaurant, we offer several delicious vegetarian sides and salads. Ask your server for recommendations!"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there parking available?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we have secured parking available for our guests at the back of the restaurant."
+                }
+            }
+        ]
+    }
+    </script>
 </body>
 
 </html>
