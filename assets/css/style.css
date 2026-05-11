@@ -7,13 +7,13 @@
 
 :root {
     /* Color Palette - Meat Lovers Restaurant Branding */
-    --primary: #e67e22;
+    --primary: #f7ab09;
     /* Orange - main brand color from logo */
-    --primary-dark: #f39c12;
+    --primary-dark: #fcbb08;
     /* Darker orange for hover states */
     --secondary: #2c1810;
     /* Dark brown - grilled, rustic */
-    --accent: #f39c12;
+    --accent: #f8ce15;
     /* Golden yellow - accent/warmth */
     --light: #fdfaf6;
     /* Creamy warm off-white */
@@ -125,9 +125,9 @@ h3 {
 }
 
 .btn-outline {
-    background: transparent;
+    background: rgb(247, 43, 16);
     border: 2px solid var(--primary);
-    color: var(--primary);
+    color: var(--light);
 }
 
 .btn-outline:hover {
@@ -714,7 +714,7 @@ footer {
     right: 30px;
     background-color: #25D366;
     color: white;
-    border-radius: 50px;
+    border-radius: 60px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -729,6 +729,10 @@ footer {
     border: none;
     cursor: pointer;
     backdrop-filter: blur(0px);
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
 }
 
 /* Icon styling */
@@ -740,7 +744,7 @@ footer {
 
 .whatsapp-float-icon svg {
     width: 40px;
-    height: 40px;
+    height: 45px;
     transition: transform 0.3s ease;
 }
 
